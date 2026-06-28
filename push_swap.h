@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/25 20:13:29 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/28 15:05:44 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void 	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+int		check_args(int argc, char **argv);
+void	push_swap(int argc, char **argv);
 #endif

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_input.c                                       :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/06/28 14:50:33 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/06/28 15:05:44 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+static int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 
@@ -30,14 +28,14 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-int	correct_stack(int num, char **argv)
+static int	correct_stack(int num, char **argv)
 {
 	if (ft_strcmp(argv[num], "1") == 0)
 		return (1);
 	return (0);
 }
 
-int	select_strategy(char *argv)
+static int	select_strategy(char *argv)
 {
 	if (ft_strcmp(argv, "--simple") == 0 || ft_strcmp(argv, "--medium") == 0
 		|| ft_strcmp(argv, "--complex") == 0
