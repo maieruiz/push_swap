@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:15:58 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/25 20:09:29 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/28 13:37:55 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ int	main(void)
 
 
 
-	print_stack("A antes", &a);
-	//print_stack("B antes", &b);
-	rra(&a);
-	print_stack("A despues", &a);
-	//print_stack("B despues", &b);
+	//print_stack("A antes", &a);
+	print_stack("B antes", &b);
+	rrb(&b);
+	//print_stack("A despues", &a);
+	print_stack("B despues", &b);
 }

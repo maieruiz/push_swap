@@ -6,13 +6,12 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:40:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/25 20:09:14 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/28 13:43:09 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
 void	sa(t_stack *a)
 {
 	int	temp_value;
@@ -51,7 +50,7 @@ void	ss(t_stack *a, t_stack *b)
 	sb(b);
 	write(1, "ss\n", 3);
 }
-*/
+
 void	pb(t_stack *a, t_stack *b)
 {
 	t_node	*temp;
@@ -134,16 +133,58 @@ void	rr(t_stack *a, t_stack *b)
 void	rra(t_stack *a)
 {
 	t_node	*temp;
-	t_node	*cursor;
-	t_node	*new_last;
+	t_node	*new_top;
 
 	if (!a->top || !a->top->next)
 		return ;
-	cursor = a->top;
-	temp = a->top->next;
-	while (cursor->next)
-		cursor = cursor->next;
-	a->top = cursor;
+	new_top = a->top;
+	temp = a->top;
+	while (new_top->next)
+		new_top = new_top->next;
+	a->top = new_top;
 	a->top->prev = NULL;
+	while (temp->next)
+	{
+		temp = temp->next;
+		if (temp->next->next == NULL)
+			temp->next = NULL;
+	}
+	while (temp->prev)
+		temp = temp->prev;
 	a->top->next = temp;
+	temp->prev = a->top;
+	write(1, "rra\n", 3);
+}
+
+void rrb(t_stack *b)
+{
+	t_node	*temp;
+	t_node	*new_top;
+
+	if (!b->top || !b->top->next)
+		return ;
+	new_top = b->top;
+	temp = b->top;
+	while (new_top->next)
+		new_top = new_top->next;
+	b->top = new_top;
+	b->top->prev = NULL;
+	while (temp->next)
+	{
+		temp = temp->next;
+		if (temp->next->next == NULL)
+			temp->next = NULL;
+	}
+	while (temp->prev)
+		temp = temp->prev;
+	b->top->next = temp;
+	temp->prev = b->top;
+	write(1, "rrb\n", 3);
+}
+
+void rrr(t_stack *a, t_stack *b)
+{
+	rra(&a);
+	rrb(&b);
+	write(1, "rrr\n", 3);
 }
