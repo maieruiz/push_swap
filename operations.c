@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:40:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/28 13:43:09 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/28 19:13:19 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ void rrb(t_stack *b)
 
 void rrr(t_stack *a, t_stack *b)
 {
-	rra(&a);
-	rrb(&b);
+	rra(a);
+	rrb(b);
 	write(1, "rrr\n", 3);
 }

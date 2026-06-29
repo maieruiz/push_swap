@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:15:58 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/28 13:37:55 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/06/29 18:28:46 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	main(void)
 	t_node	n6;	
 
 	t_stack	a;
-	t_stack b;
 
 	n1.value = 1;
 	n2.value = 2;
@@ -64,9 +63,9 @@ int	main(void)
 	n2.next = &n3;
 
 	n3.prev = &n2;
-	n3.next = NULL;
+	n3.next = &n4;
 
-	n4.prev = NULL;
+	n4.prev = &n3;
 	n4.next = &n5;
 
 	n5.prev = &n4;
@@ -77,15 +76,8 @@ int	main(void)
 
 
 	a.top = &n1;
-	a.size = 3;
-	b.top = &n4;
-	b.size = 3;
+	a.size = 6;
 
-
-
-	//print_stack("A antes", &a);
-	print_stack("B antes", &b);
-	rrb(&b);
-	//print_stack("A despues", &a);
-	print_stack("B despues", &b);
+	print_stack("A está así", &a);
+	printf("%f\n", compute_disorder(&a));
 }
