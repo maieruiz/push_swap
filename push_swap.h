@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/28 15:05:44 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/06/29 17:23:25 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
+# include <stddef.h>
+# include <stdio.h>
+# include <unistd.h>
+# include "libft/libft.h"
 
 typedef struct s_node
 {
