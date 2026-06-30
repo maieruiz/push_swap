@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/06/28 15:05:44 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/06/30 18:11:42 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,17 @@ static int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
+static int	valid_int(char *str)
+{
+	
+}
+
 static int	correct_stack(int num, char **argv)
 {
-	if (ft_strcmp(argv[num], "1") == 0)
-		return (1);
-	return (0);
+	while (argv[num])
+	{
+		
+	}
 }
 
 static int	select_strategy(char *argv)
