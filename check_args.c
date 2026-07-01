@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/06/30 18:11:42 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/01 19:21:04 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,51 @@ static int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-static int	valid_int(char *str)
+static int	is_valid_number(char *str)
 {
-	
+	int	i;
+
+	i = 0;
+	if (!str || !str[i])
+		return (0);
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < 0 || str[i] > 9)
+			return (0);
+		i++;
+	}
+	return (1)
+}
+
+static int	validate_format(char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (!argv)
+		return (0);
+	while (argv[i])
+	{
+		if (!is_valid_number(argv[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 static int	correct_stack(int num, char **argv)
 {
-	while (argv[num])
-	{
-		
-	}
+	long	*nums;
+
+	if (!argv)
+		return (0);
+	if (!validate_format(argv))
+		return (0);
+
 }
 
 static int	select_strategy(char *argv)
