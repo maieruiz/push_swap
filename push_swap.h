@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/29 18:47:00 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/02 17:25:38 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ void	ra(t_stack *a);
 void	rb(t_stack *a);
 void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
-void 	rrb(t_stack *b);
+void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+int		validate_format(char **argv);
+int	is_valid_number(char *str);
+long	convert_to_long(char *str);
 #endif

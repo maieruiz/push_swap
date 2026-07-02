@@ -6,12 +6,12 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/01 19:21:04 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/02 17:28:45 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 static int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
@@ -28,7 +28,7 @@ static int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
-static int	is_valid_number(char *str)
+int	is_valid_number(char *str)
 {
 	int	i;
 
@@ -41,14 +41,14 @@ static int	is_valid_number(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] < 0 || str[i] > 9)
+		if (str[i] < '0' || str[i] > '9')
 			return (0);
 		i++;
 	}
-	return (1)
+	return (1);
 }
 
-static int	validate_format(char **argv)
+int	validate_format(char **argv)
 {
 	int	i;
 
@@ -63,7 +63,31 @@ static int	validate_format(char **argv)
 	}
 	return (1);
 }
+*/
+long	convert_to_long(char *str)
+{
+	long	nums;
+	int		i;
+	long	sign;
 
+	i = 0;
+	sign = 1;
+	nums = 0;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i])
+	{
+		nums = nums * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nums * sign);
+}
+
+/*
 static int	correct_stack(int num, char **argv)
 {
 	long	*nums;
@@ -72,6 +96,8 @@ static int	correct_stack(int num, char **argv)
 		return (0);
 	if (!validate_format(argv))
 		return (0);
+	nums = convert_to_long(argv);
+	
 
 }
 
@@ -111,6 +137,7 @@ int	check_args(int argc, char **argv)
 	return (ret);
 }
 
+*/
 /*int	main(int argc, char **argv)
 {
 	int 	i = check_args(argc, argv);
