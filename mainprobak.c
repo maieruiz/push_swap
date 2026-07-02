@@ -1,77 +1,112 @@
 
 #include <stdio.h>
+#include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+void	print_stack(char *name, t_stack *stack)
 {
-	size_t	i;
+	t_node	*current;
+
+	printf("\n%s\n", name);
+	current = stack->top;
+	while (current)
+	{
+		printf("value=%d", current->value);
+
+		if (current->prev)
+			printf(" prev=%d", current->prev->value);
+		else
+			printf(" prev=NULL");
+
+		if (current->next)
+			printf(" next=%d", current->next->value);
+		else
+			printf(" next=NULL");
+
+		printf("\n");
+		current = current->next;
+	}
+	printf("size: %i\n", stack->size);
+}
+
+t_node	*create_node(int value, int index)
+{
+	t_node	*new_node;
+
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+		return (NULL);
+	new_node->value = value;
+	new_node->index = index;
+	new_node->prev = NULL;
+	new_node->next = NULL;
+	return (new_node);
+}
+
+static t_node	*last_node(t_stack *a)
+{
+	t_node	*current;
+
+	current = a->top;
+	while (current->next)
+	{
+		current = current->next;
+	}
+	return (current);
+}
+
+void	add_back_node(t_stack *a, t_node *node_to_add)
+{
+	t_node	*last;
+
+	if (a->top == NULL)
+	{
+		a->top = node_to_add;
+		return ;
+	}
+	last = last_node(a);
+	last->next = node_to_add;
+	node_to_add->prev = last;
+}
+
+t_stack	*create_new_stack(void)
+{
+	t_stack	*a;
+
+	a = (t_stack *)malloc(sizeof(t_stack));
+	if (!a)
+		return (NULL);
+	a->top = NULL;
+	a->size = 0;
+	return (a);
+}
+
+static t_stack	*create_stack(int start, int end, char **argv)
+{
+	t_stack	*a;
+	int		i;
+	t_node	*current;
+	int		value;
 
 	i = 0;
-	while (s[i] != 0)
+	a = create_new_stack();
+	while (start < end)
+	{
+		printf("%s\n", argv[start]);
+		value = atoi(argv[start]);
+		current = create_node(value, i);
+		add_back_node(a, current);
+		a->size++;
 		i++;
-	return (i);
-}
-
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t	i;
-
-	i = 0;
-	if (ft_strlen(s1) != ft_strlen(s2))
-		return (-1);
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		start++;
 	}
-	return (0);
+	return (a);
 }
 
-int correct_stack(int i, char **argv)
+int	main(int argc, char **argv)
 {
-	if (ft_strcmp(argv[i], "1") == 0)
-		return (1);
-	return (0);
-}
+	t_stack	*a;
 
-static int	select_strategy(char *argv)
-{
-	if (ft_strcmp(argv, "--simple") == 0 || ft_strcmp(argv, "--medium") == 0
-		|| ft_strcmp(argv, "--complex") == 0
-		|| ft_strcmp(argv, "--adaptive") == 0)
-		return (1);
-	return (0);
-}
-
-int	check_args(int argc, char **argv)
-{
-	int	ret;
-
-	ret = -1;
-	if (argc == 1)
-		return (0);
-	if (ft_strcmp(argv[1], "--bench") == 0 && argc > 2)
-	{
-		if (select_strategy(argv[2]) == 1 && argc > 3)
-		{
-			if (correct_stack(3, argv) == 1)
-				ret = 321;
-		}
-		else if (correct_stack(2, argv) == 1)
-			ret = 31;
-	}
-	else if (select_strategy(argv[1]) == 1)
-	{
-		if (correct_stack(2, argv) == 1)
-			ret = 32;
-	}
-	else if (correct_stack(1, argv) == 1)
-		ret = 3;
-	return (ret);
-}
-
-int main(int argc, char **argv)
-{
-	printf("ret: %i\n", check_args(argc, argv));
+	printf("argc= %i\n", argc);
+	a = create_stack(1, argc, argv);
+	print_stack("A:", a);
 }

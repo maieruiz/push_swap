@@ -5,7 +5,17 @@ CFLAGS = -Wall -Werror -Wextra
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-FILES = main.c operations.c check_args.c push_swap.c
+FILES = main.c\ 
+		operations.c\ 
+		check_args.c\ 
+		push_swap.c\
+		disorder_checker.c\
+		node_stack.c\
+		simple_algorithm.c\
+		medium_algorithm.c\
+		complex_algorithm.c\
+		adaptative_algorithm.c\
+		nosedondemeterlo.c
 
 OBJ = $(FILES:.c=.o)
 

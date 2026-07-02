@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/29 18:47:00 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/02 20:37:17 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ void	ra(t_stack *a);
 void	rb(t_stack *a);
 void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
-void 	rrb(t_stack *b);
+void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+int		check_args(int argc, char **argv);
+t_stack	*create_new_stack(void);
+t_node	*create_node(int value, int index);
+void	add_back_node(t_stack *a, t_node *node_to_add);
+void	call_algorithm(char strategy);
 #endif
