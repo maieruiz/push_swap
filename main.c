@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:15:58 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/02 17:27:00 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/02 18:45:20 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(void)
 {
+	char	test1[] = {"125", "58"};
 
-	printf("Test 1: %ld\n", conver_to_long("1256"));
+	printf("Test 1: %d\n", correct_stack(test1));
 	return (0);
 }

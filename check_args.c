@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/02 17:28:45 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/02 18:45:33 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_strcmp(const char *s1, const char *s2)
 		return (1);
 	return (0);
 }
-
+*/
 int	is_valid_number(char *str)
 {
 	int	i;
@@ -63,8 +63,23 @@ int	validate_format(char **argv)
 	}
 	return (1);
 }
-*/
-long	convert_to_long(char *str)
+
+
+long	convert_to_long(char **argv)
+{
+	int		i;
+	long	nums;
+
+	i = 0;
+	while (argv[i])
+	{
+		nums = ft_atol(argv[i]);
+		i++;
+	}
+	return (nums);
+}
+
+static long	ft_atol(char *str)
 {
 	long	nums;
 	int		i;
@@ -87,7 +102,7 @@ long	convert_to_long(char *str)
 	return (nums * sign);
 }
 
-/*
+
 static int	correct_stack(int num, char **argv)
 {
 	long	*nums;
@@ -97,10 +112,10 @@ static int	correct_stack(int num, char **argv)
 	if (!validate_format(argv))
 		return (0);
 	nums = convert_to_long(argv);
-	
+	printf("%ld\n", nums);
 
 }
-
+/*
 static int	select_strategy(char *argv)
 {
 	if (ft_strcmp(argv, "--simple") == 0 || ft_strcmp(argv, "--medium") == 0
