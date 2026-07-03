@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/02 18:45:33 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/03 18:51:39 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,17 @@ int	validate_format(char **argv)
 	return (1);
 }
 
-
-long	convert_to_long(char **argv)
+static int	count_args(char	**argv)
 {
-	int		i;
-	long	nums;
+	int	i;
 
 	i = 0;
 	while (argv[i])
-	{
-		nums = ft_atol(argv[i]);
 		i++;
-	}
-	return (nums);
+	return (i);
 }
+
+
 
 static long	ft_atol(char *str)
 {
@@ -103,17 +100,85 @@ static long	ft_atol(char *str)
 }
 
 
-static int	correct_stack(int num, char **argv)
+long	*convert_to_long(char **argv)
+{
+	int		count;
+	int		i;
+	long	*nums;
+
+	i = 0;
+	count = count_args(argv);
+	nums = malloc(count * sizeof (long));
+	if (!nums)
+		return (NULL);
+	while (argv[i])
+	{
+		nums[i] = ft_atol(argv[i]);
+		i++;
+	}
+	return (nums);
+}
+
+static int	check_int_limits(long *nums, int count)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		if (nums[i] < INT_MIN)
+			return (0);
+		if (nums[i] > INT_MAX)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+static int check_duplicates(long *nums, int count)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (i < count)
+	{
+		j = i + 1;
+		while (j < count)
+		{
+			if (nums[i] == nums[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	correct_stack(char **argv)
 {
 	long	*nums;
+	int		count;
 
 	if (!argv)
 		return (0);
+	count = count_args(argv);
 	if (!validate_format(argv))
 		return (0);
 	nums = convert_to_long(argv);
-	printf("%ld\n", nums);
-
+	if (!nums)
+		return (0);
+	if (!check_int_limits(nums, count))
+		{
+			free (nums);
+			return (0);
+		}
+	if (!check_duplicates(nums, count))
+		{
+			free(nums);
+			return (0);
+		}
+	free (nums);
+	return (1);
 }
 /*
 static int	select_strategy(char *argv)

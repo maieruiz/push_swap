@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/02 17:25:38 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/03 18:51:37 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stddef.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <limits.h>
 # include "libft/libft.h"
 
 typedef struct s_node
@@ -45,6 +46,7 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 int		validate_format(char **argv);
-int	is_valid_number(char *str);
-long	convert_to_long(char *str);
+int		is_valid_number(char *str);
+long	*convert_to_long(char **argv);
+int		correct_stack(char **argv);
 #endif
