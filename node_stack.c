@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node.c                                             :+:      :+:    :+:   */
+/*   node_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 16:37:22 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/02 20:24:23 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/06 13:31:40 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,24 @@ t_stack	*create_new_stack(void)
 		return (NULL);
 	a->top = NULL;
 	a->size = 0;
+	return (a);
+}
+
+t_stack	*create_stack(int start, int end, char **argv)
+{
+	t_stack	*a;
+	int		i;
+	t_node	*current;
+
+	i = 0;
+	a = create_new_stack();
+	while (start < end)
+	{
+		current = create_node(argv[start], i);
+		add_back_node(a, current);
+		a->size++;
+		i++;
+		start++;
+	}
 	return (a);
 }

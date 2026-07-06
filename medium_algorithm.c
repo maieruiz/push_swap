@@ -6,13 +6,13 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:13:41 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/02 20:14:11 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/02 23:21:58 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+/*#include "push_swap.h"
 
 void	medium_algorithm()
 {
 	
-}
+}*/

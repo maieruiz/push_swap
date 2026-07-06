@@ -51,6 +51,7 @@ static t_node	*last_node(t_stack *a)
 	{
 		current = current->next;
 	}
+	printf("last_node: %i\n", current->value);
 	return (current);
 }
 
@@ -80,7 +81,7 @@ t_stack	*create_new_stack(void)
 	return (a);
 }
 
-static t_stack	*create_stack(int start, int end, char **argv)
+t_stack	*create_stack(int start, int end, char **argv)
 {
 	t_stack	*a;
 	int		i;

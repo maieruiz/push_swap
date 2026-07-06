@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:40:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/06/28 19:13:19 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/05 23:39:58 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_stack *a, t_benchmark *bench)
 {
 	int	temp_value;
 	int	temp_index;
@@ -26,9 +26,11 @@ void	sa(t_stack *a)
 	a->top->next->value = temp_value;
 	a->top->next->index = temp_index;
 	write(1, "sa\n", 3);
+	bench->total_ops++;
+	bench->sa++;
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack *b, t_benchmark *bench)
 {
 	int	temp_value;
 	int	temp_index;
@@ -42,22 +44,26 @@ void	sb(t_stack *b)
 	b->top->next->value = temp_value;
 	b->top->next->index = temp_index;
 	write(1, "sb\n", 3);
+	bench->total_ops++;
+	bench->sb++;
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, t_benchmark *bench)
 {
-	sa(a);
-	sb(b);
+	sa(a, bench);
+	sb(b, bench);
 	write(1, "ss\n", 3);
+	bench->total_ops++;
+	bench->ss++;
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*next_node;
 
 	if (!a->top)
-		return ;	
+		return ;
 	temp = a->top;
 	next_node = a->top->next;
 	a->top = next_node;
@@ -68,9 +74,11 @@ void	pb(t_stack *a, t_stack *b)
 	a->size--;
 	b->size++;
 	write(1, "pb\n", 3);
+	bench->total_ops++;
+	bench->pb++;
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*next_node;
@@ -87,9 +95,11 @@ void	pa(t_stack *a, t_stack *b)
 	b->size--;
 	a->size++;
 	write(1, "pa\n", 3);
+	bench->total_ops++;
+	bench->pa++;
 }
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*cursor;
@@ -104,9 +114,11 @@ void	ra(t_stack *a)
 	cursor->next = temp;
 	temp->next = NULL;
 	write(1, "ra\n", 3);
+	bench->total_ops++;
+	bench->ra++;
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *b, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*cursor;
@@ -121,16 +133,20 @@ void	rb(t_stack *b)
 	cursor->next = temp;
 	temp->next = NULL;
 	write(1, "rb\n", 3);
+	bench->total_ops++;
+	bench->rb++;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, t_benchmark *bench)
 {
-	ra(a);
-	rb(b);
+	ra(a, bench);
+	rb(b, bench);
 	write(1, "rr\n", 3);
+	bench->total_ops++;
+	bench->rr++;
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack *a, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*new_top;
@@ -154,9 +170,11 @@ void	rra(t_stack *a)
 	a->top->next = temp;
 	temp->prev = a->top;
 	write(1, "rra\n", 3);
+	bench->total_ops++;
+	bench->rra++;
 }
 
-void rrb(t_stack *b)
+void rrb(t_stack *b, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*new_top;
@@ -180,11 +198,15 @@ void rrb(t_stack *b)
 	b->top->next = temp;
 	temp->prev = b->top;
 	write(1, "rrb\n", 3);
+	bench->total_ops++;
+	bench->rrb++;
 }
 
-void rrr(t_stack *a, t_stack *b)
+void rrr(t_stack *a, t_stack *b, t_benchmark *bench)
 {
-	rra(a);
-	rrb(b);
+	rra(a, bench);
+	rrb(b, bench);
 	write(1, "rrr\n", 3);
+	bench->total_ops++;
+	bench->rrr++;
 }

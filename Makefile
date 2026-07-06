@@ -15,7 +15,9 @@ FILES = main.c\
 		medium_algorithm.c\
 		complex_algorithm.c\
 		adaptative_algorithm.c\
-		nosedondemeterlo.c
+		nosedondemeterlo.c\
+		benchmark.c\
+		program.c
 
 OBJ = $(FILES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 17:39:14 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/02 15:50:01 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/02 23:17:55 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 
- int	main(void)
+/* int	main(void)
 {
 	printf("1: %i\n", ft_strncmp("salut", "salut", 5));
 	printf("2: %i\n", ft_strncmp("test", "testss", 7));
@@ -41,4 +41,4 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	printf("9: %i\n", ft_strncmp("zyxbcdefgh", "abcdwxyz", 0));
 	printf("10: %i\n", ft_strncmp("abcdefgh", "", 0));
 	printf("11: %i\n", ft_strncmp("test\200", "test\0", 6));
-} 
+} */

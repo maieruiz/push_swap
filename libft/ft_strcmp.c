@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 15:51:45 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/02 15:57:32 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/02 23:17:44 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 	return (0);
 }
 
- int	main(void)
+/*
+int	main(void)
 {
 	printf("1: %i\n", ft_strcmp("salut", "salut"));
 	printf("2: %i\n", ft_strcmp("test", "testss"));
@@ -41,4 +42,5 @@ int	ft_strcmp(const char *s1, const char *s2)
 	printf("9: %i\n", ft_strcmp("zyxbcdefgh", "abcdwxyz"));
 	printf("10: %i\n", ft_strcmp("abcdefgh", ""));
 	printf("11: %i\n", ft_strcmp("test\200", "test\0"));
-} 
+}
+*/
