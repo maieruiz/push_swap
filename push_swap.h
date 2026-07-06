@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/03 18:51:37 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/06 17:17:20 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -27,7 +26,6 @@ typedef struct s_node
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
-
 typedef struct s_stack
 {
 	t_node	*top;
@@ -49,4 +47,10 @@ int		validate_format(char **argv);
 int		is_valid_number(char *str);
 long	*convert_to_long(char **argv);
 int		correct_stack(char **argv);
+int		check_args(int argc, char **argv);
+int		check_int_limits(long *nums, int count);
+int		check_duplicates(long *nums, int count);
+int		count_args(char	**argv);
+int		ft_strcmp(const char *s1, const char *s2);
+long	ft_atol(char *str);
 #endif

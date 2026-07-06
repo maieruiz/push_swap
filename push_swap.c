@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/06/30 17:36:36 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/06 17:18:35 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	push_swap(int argc, char **argv)
 		//create stack or create in check_args??
 		disorder = compute_disorder();
 	}
-	if (stategy == 's')
+	if (strategy == 's')
 		
 	printf("%i\n", arg_type);
 }

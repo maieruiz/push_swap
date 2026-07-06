@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 18:15:58 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/03 18:56:47 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/06 17:05:09 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(void)
-{
-	char	*test1[] = {"125", "58", "34", NULL};
-	char	*test2[] = {"JSLDJF", "58", "34", NULL};
+#include <stdio.h>
 
-	printf("Test 1: %d\n", correct_stack(test1));
-	printf("Test 2: %d\n", correct_stack(test2));
-	return (0);
+int main(int argc, char **argv)
+{
+    int ret;
+
+    ret = check_args(argc, argv);
+
+    printf("check_args() devuelve: %d\n", ret);
+
+    return (0);
 }
