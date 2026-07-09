@@ -7,15 +7,15 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 FILES = operations/push.c operations/rot_reverse.c operations/rotate.c \
 		operations/swap.c parsing/check_args.c parsing/correct_stack.c \
-		push_swap.c benchmark.c disorder_checker.c node_stack.c program.c \
-		push_swap.c simple_algorithm.c utilities.c
+		benchmark.c disorder_checker.c node_stack.c program.c \
+		push_swap.c simple_algorithm.c utilities.c call_algorithm.c
 
 OBJ = $(FILES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	cc $(CFLAGS) $(FILES) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT)
+	cc $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
