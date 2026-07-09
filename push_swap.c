@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/09 15:44:13 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:17:56 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	push_swap(int argc, char **argv)
 	if (program->bench_enable == 1)
 	{
 		set_benchmark(benchmark, program);
-		printf_benchmark(benchmark);
+		//printf_benchmark(benchmark);
 	}
 }
 

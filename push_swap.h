@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 15:23:28 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:17:23 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,19 @@ typedef struct s_program
 	int		bench_enable;
 	float	disorder;
 }	t_program;
-void		sa(t_stack *a);
-void		sb(t_stack *b);
-void		ss(t_stack *a, t_stack *b);
-void		pb(t_stack *a, t_stack *b);
-void		pa(t_stack *a, t_stack *b);
-void		ra(t_stack *a);
-void		rb(t_stack *a);
-void		rr(t_stack *a, t_stack *b);
-void		rra(t_stack *a);
-void		rrb(t_stack *b);
-void		rrr(t_stack *a, t_stack *b);
+void		sa(t_stack *a, t_benchmark *bench);
+void		sb(t_stack *b, t_benchmark *bench);
+void		ss(t_stack *a, t_stack *b, t_benchmark *bench);
+void		pb(t_stack *a, t_stack *b, t_benchmark *bench);
+void		pa(t_stack *a, t_stack *b, t_benchmark *bench);
+void		ra(t_stack *a, t_benchmark *bench);
+void		rb(t_stack *b, t_benchmark *bench);
+void		rr(t_stack *a, t_stack *b, t_benchmark *bench);
+void		rra(t_stack *a, t_benchmark *bench);
+void		rrb(t_stack *b, t_benchmark *bench);
+void		rrr(t_stack *a, t_stack *b, t_benchmark *bench);
+char		choose_strategy(int arg_type, char **argv);
+int			choose_bench(int arg_type);
 int			validate_format(char **argv);
 int			is_valid_number(char *str);
 long		*convert_to_long(char **argv);
@@ -78,6 +80,7 @@ int			check_duplicates(long *nums, int count);
 int			count_args(char	**argv);
 int			ft_strcmp(const char *s1, const char *s2);
 long		ft_atol(char *str);
+t_program	*create_program(void);
 t_stack		*create_new_stack(void);
 t_stack		*create_stack(int start, int end, char **argv);
 t_node		*create_node(int value, int index);
@@ -87,6 +90,7 @@ t_benchmark	*create_benchmark(void);
 t_program	*set_program(int arg_type, char **argv, int argc);
 void		printf_benchmark(t_benchmark *bench);
 void		set_benchmark(t_benchmark *benchmark, t_program *program);
-void		simple_algorithm(t_stack *a, t_stack *b);
-void		rotate_to_min(t_stack *a, int pos_min);
+void		simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench);
+void		rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench);
+
 #endif

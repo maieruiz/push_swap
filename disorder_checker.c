@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 19:22:23 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/06 16:08:53 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:57:51 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ float	compute_disorder(t_stack *stack)
 {
 	float	mistake;
 	float	total_pairs;
-	t_node	*counter;
 	t_node	*current;
 	t_node	*runner;
 

@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:04:06 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 15:44:29 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:11:30 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,31 @@ t_program	*create_program(void)
 	program = (t_program *)malloc(sizeof(t_program));
 	if (!program)
 		return (NULL);
-	program->a = create_new_stack();
-	program->b = create_new_stack();
+	program->a = NULL;
+	program->b = NULL;
 	program->strategy = 'a';
 	program->bench_enable = 0;
 	program->disorder = 0.0;
 	return (program);
+}
+
+t_stack	*create_stack(int start, int end, char **argv)
+{
+	t_stack	*a;
+	int		i;
+	t_node	*current;
+
+	i = 0;
+	a = create_new_stack();
+	while (start < end)
+	{
+		current = create_node(ft_atoi(argv[start]), i);
+		add_back_node(a, current);
+		a->size++;
+		i++;
+		start++;
+	}
+	return (a);
 }
 
 t_program	*set_program(int arg_type, char **argv, int argc)

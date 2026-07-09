@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/09 15:22:55 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:49:56 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	find_min(t_stack *a)
 	return (pos_min);
 }
 
-void	rotate_to_min(t_stack *a, int pos_min)
+void	rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench)
 {
 	int	medium_line;
 	int	moves;
@@ -47,7 +47,7 @@ void	rotate_to_min(t_stack *a, int pos_min)
 	{
 		while (moves != 0)
 		{
-			ra(a);
+			ra(a, bench);
 			moves--;
 		}
 	}
@@ -56,13 +56,13 @@ void	rotate_to_min(t_stack *a, int pos_min)
 		moves = a->size - pos_min;
 		while (moves != 0)
 		{
-			rra(a);
+			rra(a, bench);
 			moves--;
 		}
 	}
 }
 
-static int	is_sorted(t_stack *a, t_stack *b)
+static int	is_sorted(t_stack *a, t_stack *b, t_benchmark *bench)
 {
 	int	ret;
 
@@ -70,24 +70,24 @@ static int	is_sorted(t_stack *a, t_stack *b)
 	if (ret == 0)
 	{
 		while (b->top)
-			pa(a, b);
+			pa(a, b, bench);
 		return (0);
 	}
 	return (ret);
 }
 
-void	simple_algorithm(t_stack *a, t_stack *b)
+void	simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 {
 	int	pos_min;
 
 	while (a->top)
 	{
-		if (is_sorted (a, b) == 0)
+		if (is_sorted (a, b, bench) == 0)
 			return ;
 		pos_min = find_min(a);
-		rotate_to_min(a, pos_min);
-		pb(a, b);
+		rotate_to_min(a, pos_min, bench);
+		pb(a, b, bench);
 	}
 	while (b->top)
-		pa(a, b);
+		pa(a, b, bench);
 }

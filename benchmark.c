@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 15:47:36 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:13:45 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_benchmark	*create_benchmark(void)
 	benchmark->rra = 0;
 	benchmark->rrb = 0;
 	benchmark->rrr = 0;
+	return	(benchmark);
 }
 
 void	set_benchmark(t_benchmark *benchmark, t_program *program)
@@ -47,7 +48,8 @@ void	set_benchmark(t_benchmark *benchmark, t_program *program)
 	else if (program->strategy == 'a')
 		benchmark->strategy = "Adaptive";
 }
-
+/*
 void	printf_benchmark(t_benchmark *bench)
 {
-}
+	
+}*/

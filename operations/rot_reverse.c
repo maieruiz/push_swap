@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:15:28 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 16:11:23 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:44:13 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	rra(t_stack *a, t_benchmark *bench)
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *a, t_benchmark *bench)
+void	rrb(t_stack *b, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*new_top;

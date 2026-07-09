@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:03:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 15:56:40 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 17:09:08 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,3 @@ t_stack	*create_new_stack(void)
 	return (a);
 }
 
-t_stack	*create_stack(int start, int end, char **argv)
-{
-	t_stack	*a;
-	int		i;
-	t_node	*current;
-
-	i = 0;
-	a = create_new_stack();
-	while (start < end)
-	{
-		current = create_node(ft_atoi(argv[start]), i);
-		add_back_node(a, current);
-		a->size++;
-		i++;
-		start++;
-	}
-	return (a);
-}
