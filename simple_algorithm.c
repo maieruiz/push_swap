@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/08 18:03:32 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 15:22:55 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,51 +36,57 @@ static int	find_min(t_stack *a)
 	return (pos_min);
 }
 
-static void	move_a_top(t_stack *a, t_stack *b)
+void	rotate_to_min(t_stack *a, int pos_min)
 {
-	int	pos_min;
 	int	medium_line;
-	int	rra_moves;
-	int	counter_moves;
+	int	moves;
 
-	pos_min = find_min(a);
 	medium_line = a->size / 2;
-	while (a->top)
+	moves = pos_min;
+	if (pos_min <= medium_line)
 	{
-		if (pos_min <= medium_line)
+		while (moves != 0)
 		{
-			counter_moves = pos_min;
-			while (counter_moves != 0)
-			{
-				ra(a);
-				counter_moves--;
-			}
+			ra(a);
+			moves--;
 		}
-		else
-		{
-			counter_moves = 0;
-			rra_moves = a->size - pos_min;
-			while (counter_moves < rra_moves)
-			{
-				rra(a);
-				counter_moves++;
-			}
-		}
-		pb(a, b);
 	}
+	else
+	{
+		moves = a->size - pos_min;
+		while (moves != 0)
+		{
+			rra(a);
+			moves--;
+		}
+	}
+}
+
+static int	is_sorted(t_stack *a, t_stack *b)
+{
+	int	ret;
+
+	ret = compute_disorder(a);
+	if (ret == 0)
+	{
+		while (b->top)
+			pa(a, b);
+		return (0);
+	}
+	return (ret);
 }
 
 void	simple_algorithm(t_stack *a, t_stack *b)
 {
+	int	pos_min;
+
 	while (a->top)
 	{
-		if (compute_disorder(a) == 0)
-		{
-			while (b->top)
-				pa(a, b);
+		if (is_sorted (a, b) == 0)
 			return ;
-		}
-		move_a_top (a, b);
+		pos_min = find_min(a);
+		rotate_to_min(a, pos_min);
+		pb(a, b);
 	}
 	while (b->top)
 		pa(a, b);

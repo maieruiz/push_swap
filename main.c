@@ -5,85 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/23 18:15:58 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/08 17:42:35 by amarlasc         ###   ########.fr       */
+/*   Created: 2026/07/09 14:19:20 by amarlasc          #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:59 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 #include <stdio.h>
-
-static void	print_stack(char *name, t_stack *stack)
-{
-	t_node	*current;
-
-	printf("%s (size = %d)\n", name, stack->size);
-	current = stack->top;
-	while (current)
-	{
-		printf("%d\n", current->value);
-		current = current->next;
-	}
-	printf("-----------------\n");
-}
 
 int	main(void)
 {
-	t_stack		a;
-	t_stack		b;
+	char	*argv[] = {
+		"100", "99", "98", "97", "96", "95", "94", "93", "92", "91",
+		"90", "89", "88", "87", "86", "85", "84", "83", "82", "81",
+		"80", "79", "78", "77", "76", "75", "74", "73", "72", "71",
+		"70", "69", "68", "67", "66", "65", "64", "63", "62", "61",
+		"60", "59", "58", "57", "56", "55", "54", "53", "52", "51",
+		"50", "49", "48", "47", "46", "45", "44", "43", "42", "41",
+		"40", "39", "38", "37", "36", "35", "34", "33", "32", "31",
+		"30", "29", "28", "27", "26", "25", "24", "23", "22", "21",
+		"20", "19", "18", "17", "16", "15", "14", "13", "12", "11",
+		"10", "9", "8", "7", "6", "5", "4", "3", "2", "1",
+		NULL
+	};
+	t_stack	*a;
+	t_stack	*b;
+	
+	a = correct_stack(create_stack(0, 100, argv));
+	b = create_new_stack();
 
-	t_node	n1;
-	t_node	n2;
-	t_node	n3;
-	t_node	n4;
-	t_node	n5;
+	printf("Disorder = %f\n", compute_disorder(a));
 
-	/* Inicializar stack B */
-	b.top = NULL;
-	b.size = 0;
+	simple_algorithm(a, b);
 
-	/* Valores */
-	n1.value = 5;
-	n2.value = 4;
-	n3.value = 3;
-	n4.value = 2;
-	n5.value = 1;
-
-	/* Los index no importan para este algoritmo */
-	n1.index = 0;
-	n2.index = 0;
-	n3.index = 0;
-	n4.index = 0;
-	n5.index = 0;
-
-	/* Enlaces */
-	n1.prev = NULL;
-	n1.next = &n2;
-
-	n2.prev = &n1;
-	n2.next = &n3;
-
-	n3.prev = &n2;
-	n3.next = &n4;
-
-	n4.prev = &n3;
-	n4.next = &n5;
-
-	n5.prev = &n4;
-	n5.next = NULL;
-
-	/* Stack A */
-	a.top = &n1;
-	a.size = 5;
-
-	print_stack("STACK A ANTES", &a);
-	print_stack("STACK B ANTES", &b);
-
-	simple_algorithm(&a, &b);
-
-	print_stack("STACK A DESPUÉS", &a);
-	print_stack("STACK B DESPUÉS", &b);
+	printf("Disorder final = %f\n", compute_disorder(a));
 
 	return (0);
 }
