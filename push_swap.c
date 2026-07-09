@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/08 15:00:47 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 15:44:13 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,6 @@ int	choose_bench(int arg_type)
 		return (1);
 	else
 		return (0);
-}
-
-static int	stack_start(int arg_type)
-{
-	if (arg_type == 3)
-		return (1);
-	else if (arg_type == 32 || arg_type == 31)
-		return (2);
-	else
-		return (3);
 }
 
 void	push_swap(int argc, char **argv)

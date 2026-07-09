@@ -6,13 +6,13 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:15:28 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/08 17:41:36 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:11:23 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rra(t_stack *a)
+void	rra(t_stack *a, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*new_top;
@@ -35,10 +35,12 @@ void	rra(t_stack *a)
 		temp = temp->prev;
 	a->top->next = temp;
 	temp->prev = a->top;
+	bench->rra++;
+	bench->total_ops++;
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack *a, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*new_top;
@@ -61,12 +63,16 @@ void	rrb(t_stack *b)
 		temp = temp->prev;
 	b->top->next = temp;
 	temp->prev = b->top;
+	bench->rrb++;
+	bench->total_ops++;
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b, t_benchmark *bench)
 {
-	rra(a);
-	rrb(b);
+	rra(a, bench);
+	rrb(b, bench);
+	bench->rrr++;
+	bench->total_ops++;
 	write(1, "rrr\n", 4);
 }

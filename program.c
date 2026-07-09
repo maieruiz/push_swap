@@ -6,11 +6,21 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:04:06 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/08 15:04:09 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 15:44:29 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	stack_start(int arg_type)
+{
+	if (arg_type == 3)
+		return (1);
+	else if (arg_type == 32 || arg_type == 31)
+		return (2);
+	else
+		return (3);
+}
 
 t_program	*create_program(void)
 {
@@ -32,8 +42,9 @@ t_program	*set_program(int arg_type, char **argv, int argc)
 	t_program	*program;
 
 	program = create_program();
-	program->strategy = choose_stategy(arg_type, argv);
+	program->strategy = choose_strategy(arg_type, argv);
 	program->bench_enable = choose_bench(arg_type);
 	program->a = create_stack(stack_start(arg_type), argc, argv);
 	program->disorder = compute_disorder(program->a);
+	return (program);
 }

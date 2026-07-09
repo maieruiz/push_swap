@@ -6,13 +6,13 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:13:56 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/08 17:17:03 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:13:43 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_stack *a, t_benchmark *bench)
 {
 	int	temp_value;
 	int	temp_index;
@@ -25,10 +25,12 @@ void	sa(t_stack *a)
 	a->top->index = a->top->next->index;
 	a->top->next->value = temp_value;
 	a->top->next->index = temp_index;
+	bench->sa++;
+	bench->total_ops++;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack *b, t_benchmark *bench)
 {
 	int	temp_value;
 	int	temp_index;
@@ -41,12 +43,16 @@ void	sb(t_stack *b)
 	b->top->index = b->top->next->index;
 	b->top->next->value = temp_value;
 	b->top->next->index = temp_index;
+	bench->sb++;
+	bench->total_ops++;
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, t_benchmark *bench)
 {
-	sa(a);
-	sb(b);
+	sa(a, bench);
+	sb(b, bench);
+	bench->ss++;
+	bench->total_ops++;
 	write(1, "ss\n", 3);
 }

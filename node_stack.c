@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:03:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/08 15:03:29 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 15:56:40 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void	add_back_node(t_stack *a, t_node *node_to_add)
 	t_node	*last;
 
 	if (a->top == NULL)
+	{
 		a->top = node_to_add;
+		return ;
+	}
 	last = last_node(a);
 	last->next = node_to_add;
 	node_to_add->prev = last;
@@ -71,7 +74,7 @@ t_stack	*create_stack(int start, int end, char **argv)
 	a = create_new_stack();
 	while (start < end)
 	{
-		current = create_node(argv[start], i);
+		current = create_node(ft_atoi(argv[start]), i);
 		add_back_node(a, current);
 		a->size++;
 		i++;

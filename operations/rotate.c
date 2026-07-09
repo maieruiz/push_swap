@@ -6,13 +6,13 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:14:56 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/08 17:25:15 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 16:12:33 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*cursor;
@@ -26,10 +26,12 @@ void	ra(t_stack *a)
 		cursor = cursor->next;
 	cursor->next = temp;
 	temp->next = NULL;
+	bench->ra++;
+	bench->total_ops++;
 	write(1, "ra\n", 3);
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *b, t_benchmark *bench)
 {
 	t_node	*temp;
 	t_node	*cursor;
@@ -43,12 +45,16 @@ void	rb(t_stack *b)
 		cursor = cursor->next;
 	cursor->next = temp;
 	temp->next = NULL;
+	bench->rb++;
+	bench->total_ops++;
 	write(1, "rb\n", 3);
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, t_benchmark *bench)
 {
-	ra(a);
-	rb(b);
+	ra(a, bench);
+	rb(b, bench);
+	bench->rr++;
+	bench->total_ops++;
 	write(1, "rr\n", 3);
 }

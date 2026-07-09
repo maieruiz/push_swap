@@ -6,13 +6,13 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/08 15:02:48 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/09 15:47:36 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_benchmark	*crete_benchmark(void)
+t_benchmark	*create_benchmark(void)
 {
 	t_benchmark	*benchmark;
 
