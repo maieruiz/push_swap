@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   call_algorithm.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:36:30 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/09 17:28:17 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:56:21 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	call_algorithm(t_program *program, t_benchmark *bench)
 {
-	if (program->strategy == 's')
-		simple_algorithm(program->a, program->b, bench);
+	//if (program->strategy == 's')
+	simple_algorithm(program->a, program->b, bench);
 	//else if (program->strategy == 'm')
 	//	medium_algorithm(program->a, program->b, bench);
 	//else if (program->strategy == 'c')

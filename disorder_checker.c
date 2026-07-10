@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder_checker.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 19:22:23 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 16:57:51 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:11:22 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ float	compute_disorder(t_stack *stack)
 	mistake = 0;
 	total_pairs = 0;
 	current = stack->top;
+	if (stack->size <= 1)
+    	return (0.0f);
 	while (current)
 	{
 		runner = current->next;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/09 16:49:56 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/10 13:26:35 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench)
 	}
 }
 
-static int	is_sorted(t_stack *a, t_stack *b, t_benchmark *bench)
+static float	is_sorted(t_stack *a, t_stack *b, t_benchmark *bench)
 {
-	int	ret;
+	float	ret;
 
 	ret = compute_disorder(a);
-	if (ret == 0)
+	if (ret == 0.0f)
 	{
 		while (b->top)
 			pa(a, b, bench);
@@ -82,10 +82,12 @@ void	simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 
 	while (a->top)
 	{
-		if (is_sorted (a, b, bench) == 0)
-			return ;
+		if (is_sorted(a, b, bench) == 0.0f)
+			break ;
 		pos_min = find_min(a);
 		rotate_to_min(a, pos_min, bench);
+		if (is_sorted(a, b, bench) == 0.0f)
+			break ;
 		pb(a, b, bench);
 	}
 	while (b->top)

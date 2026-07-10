@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   program.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:04:06 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 17:11:30 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/10 12:33:45 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_program	*create_program(void)
 		return (NULL);
 	program->a = NULL;
 	program->b = NULL;
-	program->strategy = 'a';
+	program->strategy = 's';
 	program->bench_enable = 0;
 	program->disorder = 0.0;
 	return (program);
@@ -64,6 +64,7 @@ t_program	*set_program(int arg_type, char **argv, int argc)
 	program->strategy = choose_strategy(arg_type, argv);
 	program->bench_enable = choose_bench(arg_type);
 	program->a = create_stack(stack_start(arg_type), argc, argv);
+	program->b = create_new_stack();
 	program->disorder = compute_disorder(program->a);
 	return (program);
 }
