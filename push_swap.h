@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/11 15:27:27 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/11 17:49:21 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ typedef struct s_program
 	int		bench_enable;
 	float	disorder;
 }	t_program;
+typedef struct s_chunk
+{
+	int	chunk_size;
+	int	min;
+	int	max;
+}	t_chunk;
 void		sa(t_stack *a, t_benchmark *bench);
 void		sb(t_stack *b, t_benchmark *bench);
 void		ss(t_stack *a, t_stack *b, t_benchmark *bench);

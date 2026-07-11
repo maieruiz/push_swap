@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder_checker.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 19:22:23 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/10 13:11:22 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/11 21:12:04 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

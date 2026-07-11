@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium2.c                                          :+:      :+:    :+:   */
+/*   set_index_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:59:12 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/11 15:23:28 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/11 18:54:46 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void	set_stack_index(t_stack *a)
 	current->index = set_node_index(a, current);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	t_stack	*a;
 
@@ -155,4 +155,4 @@ int	main(void)
 	print_stack("A", a);
 	//printf("3\n");
 	//printf("pos_min: %i\n", find_min(a)->value);
-}
+}*/
