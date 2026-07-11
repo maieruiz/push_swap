@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 17:17:23 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/11 15:27:27 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void		printf_benchmark(t_benchmark *bench);
 void		set_benchmark(t_benchmark *benchmark, t_program *program);
 void		simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench);
 void		rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench);
+void		set_stack_index(t_stack *a);
 
 #endif

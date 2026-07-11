@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:03:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 17:09:08 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/10 20:44:05 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	add_back_node(t_stack *a, t_node *node_to_add)
 	last = last_node(a);
 	last->next = node_to_add;
 	node_to_add->prev = last;
+	a->size++;
 }
 
 t_stack	*create_new_stack(void)
