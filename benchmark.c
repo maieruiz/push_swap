@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 17:11:37 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 18:45:23 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	set_benchmark(t_benchmark *benchmark, t_program *program)
 		benchmark->strategy = "Adaptive";
 }
 
-char	*conplexity_class(t_benchmark *b, t_program *p)
+char	*comp_class(t_benchmark *b, t_program *p)
 {
 	if (p->disorder < 0.2)
 		return ("O(n²)");
@@ -63,7 +63,7 @@ void	printf_benchmark(t_benchmark *b, t_program *p)
 {
 	ft_printf(2, "[bench] disorder: %i.", (int)p->disorder / 100);
 	ft_printf(2, "%i%%\n", (int)p->disorder % 100);
-	ft_printf(2, "[bench] strategy: %s / %s\n", b->strategy, complexity_class(b, p));
+	ft_printf(2, "[bench] strategy: %s / %s\n", b->strategy, comp_class(b, p));
 	ft_printf(2, "[bench] total_ops: %i\n", b->total_ops);
 	ft_printf(2, "[bench] sa: %i sb: %i ", b->sa, b->sb);
 	ft_printf(2, "ss: %i pa: %i pb: %i\n", b->ss, b->pa, b->pb);
@@ -71,7 +71,7 @@ void	printf_benchmark(t_benchmark *b, t_program *p)
 	ft_printf(2, "rra: %i rrb: %i rrr: %i\n", b->rra, b->rrb, b->rrr);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	t_benchmark	*bench;
 
@@ -91,4 +91,4 @@ int	main(void)
 	bench->rrb = 0;
 	bench->rrr = 0;
 	printf_benchmark(bench);
-}
+}*/

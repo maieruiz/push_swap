@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 /*void	print_stack(char *name, t_stack *stack)
 {
@@ -372,15 +372,15 @@ int	main(void)
 	bench = create_benchmark();
 	a = create_new_stack();
 	b = create_new_stack();
-	add_back_node(a, create_node(2, 1));
 	add_back_node(a, create_node(9, 8));
-	add_back_node(a, create_node(3, 2));
-	add_back_node(a, create_node(6, 5));
 	add_back_node(a, create_node(8, 7));
-	add_back_node(a, create_node(4, 3));
-	add_back_node(a, create_node(5, 4));
-	add_back_node(a, create_node(1, 0));
 	add_back_node(a, create_node(7, 6));
+	add_back_node(a, create_node(6, 5));
+	add_back_node(a, create_node(5, 5));
+	add_back_node(a, create_node(4, 3));
+	add_back_node(a, create_node(3, 2));
+	add_back_node(a, create_node(2, 1));
+	add_back_node(a, create_node(1, 0));
 	medium_algorithm(a, b, bench);
 	print_stack("A", a);
 	print_stack("B", b);
