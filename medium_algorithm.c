@@ -5,6 +5,7 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< HEAD
 /*   Created: 2026/07/10 19:23:50 by mairuiz           #+#    #+#             */
 /*   Updated: 2026/07/12 13:12:01 by mairuiz          ###   ########.fr       */
 /*                                                                            */
@@ -98,3 +99,16 @@ void	medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 	push_to_b(a, b, bench, chunk);
 	push_to_a(a, b, bench, chunk);
 }
+=======
+/*   Created: 2026/07/02 20:13:41 by mairuiz           #+#    #+#             */
+/*   Updated: 2026/07/02 23:21:58 by mairuiz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*#include "push_swap.h"
+
+void	medium_algorithm()
+{
+	
+}*/
+>>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913

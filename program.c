@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   program.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:04:06 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/10 12:33:45 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/12 13:20:24 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

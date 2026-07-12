@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder_checker.c                                 :+:      :+:    :+:   */
+/*   main_last_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 19:22:23 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 13:19:25 by mairuiz          ###   ########.fr       */
+/*   Created: 2026/07/06 13:57:35 by mairuiz           #+#    #+#             */
+/*   Updated: 2026/07/06 13:58:49 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	compute_disorder(t_stack *stack)
+static t_node	*last_node(t_stack *a)
 {
-	float	mistake;
-	float	total_pairs;
 	t_node	*current;
-	t_node	*runner;
 
-	mistake = 0;
-	total_pairs = 0;
-	current = stack->top;
-	if (stack->size <= 1)
-		return (0.0f);
-	while (current)
+	current = a->top;
+	while (current->next)
 	{
-		runner = current->next;
-		while (runner)
-		{
-			total_pairs += 1;
-			if (current->value > runner->value)
-				mistake += 1;
-			runner = runner->next;
-		}
+		printf("last_next: %i\n", current->next->value);
+		//break;
 		current = current->next;
 	}
-	return (mistake / total_pairs);
+	printf("last: %i\n", current->value);
+	return (current);
 }
+
+int	main(void)
+{
+	
+}
+	
