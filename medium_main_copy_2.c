@@ -50,6 +50,77 @@ t_benchmark	*create_benchmark(void)
 	return (benchmark);
 }
 
+void	rb(t_stack *b, t_benchmark *bench)
+{
+	t_node	*temp;
+	t_node	*cursor;
+
+	if (!b->top || !b->top->next)
+		return ;
+	temp = b->top;
+	b->top = b->top->next;
+	cursor = b->top;
+	while (cursor->next)
+		cursor = cursor->next;
+	cursor->next = temp;
+	temp->next = NULL;
+	bench->rb++;
+	bench->total_ops++;
+	write(1, "rb\n", 3);
+}
+
+
+void	rrb(t_stack *b, t_benchmark *bench)
+{
+	t_node	*temp;
+	t_node	*new_top;
+
+	if (!b->top || !b->top->next)
+		return ;
+	new_top = b->top;
+	temp = b->top;
+	while (new_top->next)
+		new_top = new_top->next;
+	b->top = new_top;
+	b->top->prev = NULL;
+	while (temp->next)
+	{
+		temp = temp->next;
+		if (temp->next->next == NULL)
+			temp->next = NULL;
+	}
+	while (temp->prev)
+		temp = temp->prev;
+	b->top->next = temp;
+	temp->prev = b->top;
+	bench->rrb++;
+	bench->total_ops++;
+	write(1, "rrb\n", 4);
+}
+
+void	pa(t_stack *a, t_stack *b, t_benchmark *bench)
+{
+	t_node	*temp;
+
+	if (!b->top)
+		return ;
+	temp = b->top;
+	b->top = temp->next;
+	if (b->top)
+		b->top->prev = NULL;
+	temp->next = a->top;
+	if (a->top)
+		a->top->prev = temp;
+	temp->prev = NULL;
+	a->top = temp;
+	b->size--;
+	a->size++;
+	bench->pb++;
+	bench->total_ops++;
+	write(1, "pb\n", 3);
+}
+
+
 void	ra(t_stack *a, t_benchmark *bench)
 {
 	t_node	*temp;
@@ -233,36 +304,63 @@ t_chunk	*set_chunk(t_chunk	*chunk, int	chunk_num)
 	return (chunk);
 }
 
+
+
+static int	find_max(t_stack *b, int ind_to_find)
+{
+	t_node	*current;
+	int		pos;
+
+	current = b->top;
+	pos = 0;
+	while (current->next)
+	{
+		if (current->index == ind_to_find)
+		{
+			return (pos);
+		}
+		pos++;
+		current = current->next;
+	}
+	return (pos);
+}
+
+
+void	push_to_a(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chunk)
+{
+	int	ind_to_push;
+	int	medium_line;
+	int	ind_pos;
+
+	printf("push_to_a\n");
+	medium_line = b->size / 2;
+	ind_to_push = b->size - 1;
+	while (ind_to_push >= 0)
+	{
+		if (b->top->index == ind_to_push)
+		{
+			pa(a, b, bench);
+			ind_to_push--;
+		}
+		else
+		{
+			ind_pos = find_max(b, ind_to_push);
+			if (ind_pos < medium_line)
+				rb(b, bench);
+			else
+				rrb(b, bench);
+		}
+	}
+}
+
 void	medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 {
 	t_chunk	*chunk;
-	int	chunk_cont;
-	int	sub_chunk_cont;
-//push_to_b(a, b, bench, chunk);
+
 	set_stack_index(a);
 	chunk = set_chunk(create_chunk(), a->size);
-	chunk_cont = 0;
-	while (chunk_cont < chunk->chunk_size)
-	{
-		sub_chunk_cont = 0;
-		while (sub_chunk_cont < chunk->chunk_size)
-		{
-			printf("sub_chunk: %i.%i\n", chunk_cont, sub_chunk_cont);
-			printf("node: %i\n", a->top->value);
-			if (is_top_in_chunk(a, chunk->min, chunk->max) == 1)
-			{
-				pb(a, b, bench);
-				sub_chunk_cont++;
-			}
-			else
-				ra(a, bench);
-		}
-		next_chunk(chunk);
-		chunk_cont++;
-	}
-/*	chunk_a_b();
-	while (b)
-		push_max_to_a();*/
+	push_to_b(a, b, bench, chunk);
+	push_to_a(a, b, bench, chunk);
 }
 
 int	main(void)
@@ -284,7 +382,9 @@ int	main(void)
 	add_back_node(a, create_node(1, 0));
 	add_back_node(a, create_node(7, 6));
 	medium_algorithm(a, b, bench);
+	print_stack("A", a);
 	print_stack("B", b);
+	printf("total_ops: %i\n", bench->total_ops);
 	//printf("3\n");
 	//printf("pos_min: %i\n", find_min(a)->value);
 }

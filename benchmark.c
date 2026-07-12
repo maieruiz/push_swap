@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/11 21:20:16 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 13:10:37 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ void	set_benchmark(t_benchmark *benchmark, t_program *program)
 void	printf_benchmark(t_benchmark *bench)
 {
 	ft_putstr_fd("[bench] disorder: ", 2);
-
 	ft_putstr_fd(".", 2);
-
 	ft_putendl_fd("%\n", 2);
 	ft_putstr_fd("[bench] strategy: ", 2);
 	ft_putendl_fd(&bench->strategy, 2);

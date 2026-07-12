@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 19:22:23 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/11 21:12:04 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 13:09:41 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ float	compute_disorder(t_stack *stack)
 	total_pairs = 0;
 	current = stack->top;
 	if (stack->size <= 1)
-    	return (0.0f);
+		return (0.0f);
 	while (current)
 	{
 		runner = current->next;

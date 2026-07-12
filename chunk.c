@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 18:59:14 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/11 19:49:37 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 13:11:07 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	next_chunk(t_chunk	*chunk)
 	chunk->max = chunk->max + chunk->chunk_size;
 }
 
-t_chunk	*create_chunk()
+t_chunk	*create_chunk(void)
 {
 	t_chunk	*new_chunk;
 
