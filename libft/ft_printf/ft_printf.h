@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 14:28:04 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/06/05 11:11:12 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 15:45:29 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <unistd.h>
 # include <stdio.h>
 
-int	ft_putchar(int c);
-int	ft_putstr(char *s);
-int	ft_putnbr(int n);
-int	ft_puthex(unsigned long un, char format);
-int	ft_putunsigned(unsigned int n);
-int	ft_printf(char const *s, ...);
+int	ft_putchar(int fd, int c);
+int	ft_putstr(int fd, char *s);
+int	ft_putnbr(int fd, int n);
+int	ft_puthex(int fd, unsigned long un, char format);
+int	ft_putunsigned(int fd, unsigned int n);
+int	ft_printf(int fd, char const *s, ...);
 
 #endif

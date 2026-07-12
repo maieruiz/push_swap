@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 13:24:25 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 16:46:38 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			choose_bench(int arg_type);
 int			validate_format(char **argv);
 int			is_valid_number(char *str);
 long		*convert_to_long(char **argv);
-float		compute_disorder(t_stack *stack);
+int		compute_disorder(t_stack *stack);
 int			correct_stack(char **argv);
 int			check_args(int argc, char **argv);
 int			check_int_limits(long *nums, int count);

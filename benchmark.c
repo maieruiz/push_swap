@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 13:26:35 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 17:11:37 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,46 @@ void	set_benchmark(t_benchmark *benchmark, t_program *program)
 		benchmark->strategy = "Adaptive";
 }
 
-void	printf_benchmark(t_benchmark *bench)
+char	*conplexity_class(t_benchmark *b, t_program *p)
 {
-	ft_putstr_fd("[bench] disorder: ", 2);
-	ft_putstr_fd(".", 2);
-	ft_putendl_fd("%\n", 2);
-	ft_putstr_fd("[bench] strategy: ", 2);
-	ft_putendl_fd(&bench->strategy, 2);
-	ft_putendl_fd("\n", 2);
-	ft_putstr_fd("[bench] total_ops: ", 2);
-	ft_putnbr_fd(bench->total_ops, 2);
-	
+	if (p->disorder < 0.2)
+		return ("O(n²)");
+	else if (0.2 <= p->disorder || p->disorder < 0.5)
+		return ("O(n√n)");
+	else if (p->disorder >= 0.5)
+		return ("O(n log n)");
+}
+
+void	printf_benchmark(t_benchmark *b, t_program *p)
+{
+	ft_printf(2, "[bench] disorder: %i.", (int)p->disorder / 100);
+	ft_printf(2, "%i%%\n", (int)p->disorder % 100);
+	ft_printf(2, "[bench] strategy: %s / %s\n", b->strategy, complexity_class(b, p));
+	ft_printf(2, "[bench] total_ops: %i\n", b->total_ops);
+	ft_printf(2, "[bench] sa: %i sb: %i ", b->sa, b->sb);
+	ft_printf(2, "ss: %i pa: %i pb: %i\n", b->ss, b->pa, b->pb);
+	ft_printf(2, "[bench] ra: %i rb: %i rr: %i ", b->ra, b->rb, b->rr);
+	ft_printf(2, "rra: %i rrb: %i rrr: %i\n", b->rra, b->rrb, b->rrr);
+}
+
+int	main(void)
+{
+	t_benchmark	*bench;
+
+	bench = crete_benchmark();
+	bench->disorder = 12.23;
+	bench->strategy = "Adaptive";
+	bench->total_ops = 2;
+	bench->sa = 0;
+	bench->sb = 1;
+	bench->ss = 0;
+	bench->pb = 34;
+	bench->pa = 76;
+	bench->ra = 0;
+	bench->rb = 6;
+	bench->rr = 88;
+	bench->rra = 12;
+	bench->rrb = 0;
+	bench->rrr = 0;
+	printf_benchmark(bench);
 }
