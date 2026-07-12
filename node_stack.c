@@ -5,13 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD
 /*   Created: 2026/07/08 15:03:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/10 20:44:05 by mairuiz          ###   ########.fr       */
-=======
-/*   Created: 2026/07/02 16:37:22 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/06 13:31:40 by mairuiz          ###   ########.fr       */
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
+/*   Updated: 2026/07/12 13:28:52 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +43,6 @@ void	add_back_node(t_stack *a, t_node *node_to_add)
 	t_node	*last;
 
 	if (a->top == NULL)
-<<<<<<< HEAD
 	{
 		a->top = node_to_add;
 		return ;
@@ -57,12 +51,6 @@ void	add_back_node(t_stack *a, t_node *node_to_add)
 	last->next = node_to_add;
 	node_to_add->prev = last;
 	a->size++;
-=======
-		a->top = node_to_add;
-	last = last_node(a);
-	last->next = node_to_add;
-	node_to_add->prev = last;
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
 }
 
 t_stack	*create_new_stack(void)
@@ -77,8 +65,6 @@ t_stack	*create_new_stack(void)
 	return (a);
 }
 
-<<<<<<< HEAD
-=======
 t_stack	*create_stack(int start, int end, char **argv)
 {
 	t_stack	*a;
@@ -97,4 +83,3 @@ t_stack	*create_stack(int start, int end, char **argv)
 	}
 	return (a);
 }
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913

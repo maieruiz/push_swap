@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/12 13:20:54 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/12 13:24:45 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,4 @@ void	push_swap(int argc, char **argv)
 /*int	main(int argc, char **argv)
 {
 	push_swap(argc, argv);
-}
+}*/

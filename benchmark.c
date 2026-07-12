@@ -5,23 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 13:10:37 by mairuiz          ###   ########.fr       */
-=======
-/*   Created: 2026/07/05 23:47:50 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/05 23:59:28 by mairuiz          ###   ########.fr       */
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
+/*   Updated: 2026/07/12 13:26:35 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-<<<<<<< HEAD
-t_benchmark	*create_benchmark(void)
-=======
 t_benchmark	*crete_benchmark(void)
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
 {
 	t_benchmark	*benchmark;
 
@@ -42,10 +33,7 @@ t_benchmark	*crete_benchmark(void)
 	benchmark->rra = 0;
 	benchmark->rrb = 0;
 	benchmark->rrr = 0;
-<<<<<<< HEAD
 	return (benchmark);
-=======
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
 }
 
 void	set_benchmark(t_benchmark *benchmark, t_program *program)
@@ -63,7 +51,6 @@ void	set_benchmark(t_benchmark *benchmark, t_program *program)
 
 void	printf_benchmark(t_benchmark *bench)
 {
-<<<<<<< HEAD
 	ft_putstr_fd("[bench] disorder: ", 2);
 	ft_putstr_fd(".", 2);
 	ft_putendl_fd("%\n", 2);
@@ -73,6 +60,4 @@ void	printf_benchmark(t_benchmark *bench)
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(bench->total_ops, 2);
 	
-=======
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
 }

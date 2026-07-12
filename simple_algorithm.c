@@ -3,27 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/10 13:26:35 by amarlasc         ###   ########.fr       */
-=======
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/06 14:24:20 by mairuiz          ###   ########.fr       */
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
+/*   Updated: 2026/07/12 13:30:15 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-<<<<<<< HEAD
 static int	find_min(t_stack *a)
-=======
-int	find_min(t_stack *a)
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
 {
 	t_node	*current;
 	t_node	*current_min;
@@ -47,7 +36,6 @@ int	find_min(t_stack *a)
 	return (pos_min);
 }
 
-<<<<<<< HEAD
 void	rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench)
 {
 	int	medium_line;
@@ -104,9 +92,4 @@ void	simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 	}
 	while (b->top)
 		pa(a, b, bench);
-=======
-void	simple_algorithm(t_stack *a, t_stack *b, t_benchmark bench)
-{
-	
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913
 }
