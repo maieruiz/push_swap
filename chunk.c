@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 18:59:14 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/12 13:11:07 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/13 18:47:30 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_chunk	*create_chunk(void)
 	new_chunk->chunk_size = 0;
 	new_chunk->min = 0;
 	new_chunk->max = 0;
+	return (new_chunk);
 }
 
 t_chunk	*set_chunk(t_chunk *chunk, int chunk_num)

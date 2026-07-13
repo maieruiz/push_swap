@@ -3,20 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-<<<<<<< HEAD:parsing/check_args.c
-/*   Updated: 2026/07/09 14:38:02 by amarlasc         ###   ########.fr       */
-=======
-/*   Updated: 2026/07/02 15:58:34 by mairuiz          ###   ########.fr       */
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913:check_args.c
+/*   Updated: 2026/07/13 18:00:15 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-<<<<<<< HEAD:parsing/check_args.c
 int	correct_stack(char **argv)
 {
 	long	*nums;
@@ -36,16 +31,6 @@ int	correct_stack(char **argv)
 		return (0);
 	}
 	if (!check_duplicates(nums, count))
-=======
-static int	valid_int(char *str)
-{
-	
-}
-
-static int	correct_stack(int num, char **argv)
-{
-	while (argv[num])
->>>>>>> e9a1d646e49110b06bca91ba7f711d04226ec913:check_args.c
 	{
 		free(nums);
 		return (0);

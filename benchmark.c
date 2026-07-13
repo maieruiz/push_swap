@@ -6,13 +6,13 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 18:45:23 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/13 19:00:24 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_benchmark	*crete_benchmark(void)
+t_benchmark	*create_benchmark(void)
 {
 	t_benchmark	*benchmark;
 
@@ -49,21 +49,30 @@ void	set_benchmark(t_benchmark *benchmark, t_program *program)
 		benchmark->strategy = "Adaptive";
 }
 
-char	*comp_class(t_benchmark *b, t_program *p)
+char	*comp_class(t_program *p)
 {
-	if (p->disorder < 0.2)
+	if (p->strategy == 'a')
+	{
+		if (p->disorder < 0.2)
+			return ("O(n²)");
+		else if (0.2 <= p->disorder || p->disorder < 0.5)
+			return ("O(n√n)");
+		else
+			return ("O(n log n)");
+	}
+	else if (p->strategy == 's')
 		return ("O(n²)");
-	else if (0.2 <= p->disorder || p->disorder < 0.5)
+	else if (p->strategy == 'm')
 		return ("O(n√n)");
-	else if (p->disorder >= 0.5)
-		return ("O(n log n)");
+	else
+		return ("O(n log n");
 }
 
 void	printf_benchmark(t_benchmark *b, t_program *p)
 {
-	ft_printf(2, "[bench] disorder: %i.", (int)p->disorder / 100);
-	ft_printf(2, "%i%%\n", (int)p->disorder % 100);
-	ft_printf(2, "[bench] strategy: %s / %s\n", b->strategy, comp_class(b, p));
+	//ft_printf(2, "[bench] disorder: %i.", (p->disorder * 1000) / 100);
+	//ft_printf(2, "%i%%\n", (p->disorder * 1000) % 100);
+	ft_printf(2, "[bench] strategy: %s / %s\n", b->strategy, comp_class(p));
 	ft_printf(2, "[bench] total_ops: %i\n", b->total_ops);
 	ft_printf(2, "[bench] sa: %i sb: %i ", b->sa, b->sb);
 	ft_printf(2, "ss: %i pa: %i pb: %i\n", b->ss, b->pa, b->pb);

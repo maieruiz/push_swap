@@ -6,31 +6,31 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 19:23:50 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/12 13:27:55 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/13 18:47:53 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_top_in_chunk(t_stack *a, int min, int max)
+static int	is_top_in_chunk(t_stack *a, int min, int max)
 {
 	if (min <= a->top->index && a->top->index <= max)
 		return (1);
 	return (0);
 }
 
-void	push_to_b(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chunk)
+static void	push_to_b(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chu)
 {
 	int	chunk_cont;
 	int	sub_chunk_cont;
 
 	chunk_cont = 0;
-	while (chunk_cont < chunk->chunk_size)
+	while (chunk_cont < chu->chunk_size)
 	{
 		sub_chunk_cont = 0;
-		while (sub_chunk_cont < chunk->chunk_size)
+		while (sub_chunk_cont < chu->chunk_size)
 		{
-			if (is_top_in_chunk(a, chunk->min, chunk->max) == 1)
+			if (is_top_in_chunk(a, chu->min, chu->max) == 1)
 			{
 				pb(a, b, bench);
 				sub_chunk_cont++;
@@ -38,7 +38,7 @@ void	push_to_b(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chunk)
 			else
 				ra(a, bench);
 		}
-		next_chunk(chunk);
+		next_chunk(chu);
 		chunk_cont++;
 	}
 }
@@ -62,13 +62,12 @@ static int	find_max(t_stack *b, int ind_to_find)
 	return (pos);
 }
 
-void	push_to_a(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chunk)
+static void	push_to_a(t_stack *a, t_stack *b, t_benchmark *bench)
 {
 	int	ind_to_push;
 	int	medium_line;
 	int	ind_pos;
 
-	printf("push_to_a\n");
 	medium_line = b->size / 2;
 	ind_to_push = b->size - 1;
 	while (ind_to_push >= 0)
@@ -96,5 +95,5 @@ void	medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 	set_stack_index(a);
 	chunk = set_chunk(create_chunk(), a->size);
 	push_to_b(a, b, bench, chunk);
-	push_to_a(a, b, bench, chunk);
+	push_to_a(a, b, bench);
 }

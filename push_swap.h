@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 16:46:38 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/13 19:02:06 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int			choose_bench(int arg_type);
 int			validate_format(char **argv);
 int			is_valid_number(char *str);
 long		*convert_to_long(char **argv);
-int		compute_disorder(t_stack *stack);
+float		compute_disorder(t_stack *stack);
 int			correct_stack(char **argv);
 int			check_args(int argc, char **argv);
 int			check_int_limits(long *nums, int count);
@@ -89,15 +89,21 @@ long		ft_atol(char *str);
 t_program	*create_program(void);
 t_stack		*create_new_stack(void);
 t_stack		*create_stack(int start, int end, char **argv);
-t_node		*create_node(int value, int index);
+t_node		*create_node(int value);
 void		add_back_node(t_stack *a, t_node *node_to_add);
 void		call_algorithm(t_program *program, t_benchmark *bench);
 t_benchmark	*create_benchmark(void);
+void		printf_benchmark(t_benchmark *b, t_program *p);
 t_program	*set_program(int arg_type, char **argv, int argc);
-void		printf_benchmark(t_benchmark *bench);
+void		printf_benchmark(t_benchmark *bench, t_program *p);
 void		set_benchmark(t_benchmark *benchmark, t_program *program);
 void		simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench);
+void		medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench);
 void		rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench);
 void		set_stack_index(t_stack *a);
+void		next_chunk(t_chunk	*chunk);
+t_chunk		*set_chunk(t_chunk *chunk, int chunk_num);
+t_chunk		*create_chunk(void);
+void	adaptive_algorithm(t_stack *a, t_stack *b, t_benchmark *ben, float dis);
 
 #endif

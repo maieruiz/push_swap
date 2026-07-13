@@ -8,8 +8,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 FILES = operations/push.c operations/rot_reverse.c operations/rotate.c \
 		operations/swap.c parsing/check_args.c parsing/correct_stack.c \
 		benchmark.c disorder_checker.c node_stack.c program.c \
-		push_swap.c simple_algorithm.c utilities.c call_algorithm.c
-		index.c
+		push_swap.c simple_algorithm.c utilities.c call_algorithm.c\
+		index.c medium_algorithm.c chunk.c adaptive_algorithm.c\
 
 OBJ = $(FILES:.c=.o)
 
