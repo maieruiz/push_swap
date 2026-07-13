@@ -353,6 +353,30 @@ void	push_to_a(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chunk)
 	}
 }
 
+void	push_to_b(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chunk)
+{
+	int	chunk_cont;
+	int	sub_chunk_cont;
+
+	chunk_cont = 0;
+	while (chunk_cont < chunk->chunk_size)
+	{
+		sub_chunk_cont = 0;
+		while (sub_chunk_cont < chunk->chunk_size)
+		{
+			if (is_top_in_chunk(a, chunk->min, chunk->max) == 1)
+			{
+				pb(a, b, bench);
+				sub_chunk_cont++;
+			}
+			else
+				ra(a, bench);
+		}
+		next_chunk(chunk);
+		chunk_cont++;
+	}
+}
+
 void	medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 {
 	t_chunk	*chunk;
