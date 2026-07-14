@@ -10,6 +10,7 @@ FILES = operations/push.c operations/rot_reverse.c operations/rotate.c \
 		benchmark.c disorder_checker.c node_stack.c program.c \
 		push_swap.c simple_algorithm.c utilities.c call_algorithm.c\
 		index.c medium_algorithm.c chunk.c adaptive_algorithm.c\
+		complex_algorithm.c
 
 OBJ = $(FILES:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.com>  +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:40:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/10 13:21:07 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/14 13:40:36 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pa(t_stack *a, t_stack *b, t_benchmark *bench)
 	a->top = temp;
 	b->size--;
 	a->size++;
-	bench->pb++;
+	bench->pa++;
 	bench->total_ops++;
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/13 19:02:06 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/14 13:19:44 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void		set_stack_index(t_stack *a);
 void		next_chunk(t_chunk	*chunk);
 t_chunk		*set_chunk(t_chunk *chunk, int chunk_num);
 t_chunk		*create_chunk(void);
-void	adaptive_algorithm(t_stack *a, t_stack *b, t_benchmark *ben, float dis);
-
+void		adaptive_algorithm(t_stack *a, t_stack *b, t_benchmark *ben, float dis);
+void		complex_algorithm(t_stack *a, t_stack *b, t_benchmark *ben);
+void		print_stack(char *name, t_stack *stack);
 #endif
