@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/13 19:00:24 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/14 13:58:38 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*comp_class(t_program *p)
 	else if (p->strategy == 'm')
 		return ("O(n√n)");
 	else
-		return ("O(n log n");
+		return ("O(n log n)");
 }
 
 void	printf_benchmark(t_benchmark *b, t_program *p)

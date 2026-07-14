@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/13 18:50:02 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/14 14:01:42 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	stack_start(int arg_type)
 	else
 		return (3);
 }
-
+/*
 void	print_stack(char *name, t_stack *stack)
 {
 	t_node	*current;
@@ -54,7 +54,7 @@ void	print_stack(char *name, t_stack *stack)
 		current = current->next;
 	}
 	printf("size: %i\n", stack->size);
-}
+}*/
 
 void	push_swap(int argc, char **argv)
 {
@@ -73,11 +73,7 @@ void	push_swap(int argc, char **argv)
 	}
 	else
 		program = set_program(arg_type, argv, argc);
-	ft_printf(1, "%i\n", program->a->size);
 	call_algorithm(program, benchmark);
-	print_stack("A", program->a);
-	set_benchmark(benchmark, program);
-	printf_benchmark(benchmark, program);
 	if (program->bench_enable == 1)
 	{
 		set_benchmark(benchmark, program);

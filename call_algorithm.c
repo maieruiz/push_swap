@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:36:30 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/14 11:36:43 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/14 13:58:55 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	call_algorithm(t_program *program, t_benchmark *bench)
 {
-	printf("strategy %c\n", program->strategy);
 	if (program->strategy == 's')
 		simple_algorithm(program->a, program->b, bench);
 	else if (program->strategy == 'm')

@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:14:33 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/14 13:51:32 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/14 13:59:08 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void	complex_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 	while (bit < rounds)
 	{
 		check_byte(a, b, bit, bench);
-		print_stack("STACK A", a);
-		print_stack("STACK B", b);
 		while (b->top)
 			pa(a, b, bench);
 		bit++;

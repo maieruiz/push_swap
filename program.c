@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   program.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:04:06 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/13 19:04:24 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/14 14:00:15 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ t_program	*set_program(int arg_type, char **argv, int argc)
 	program->a = create_stack(stack_start(arg_type), argc, argv);
 	program->b = create_new_stack();
 	program->disorder = compute_disorder(program->a);
-	printf("aaa%f\n", program->disorder);
 	return (program);
 }
