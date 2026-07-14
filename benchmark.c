@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/14 13:58:38 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/14 14:59:49 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ char	*comp_class(t_program *p)
 
 void	printf_benchmark(t_benchmark *b, t_program *p)
 {
-	//ft_printf(2, "[bench] disorder: %i.", (p->disorder * 1000) / 100);
-	//ft_printf(2, "%i%%\n", (p->disorder * 1000) % 100);
+	ft_printf(2, "[bench] disorder: %i.", ((int)(p->disorder * 10000)) / 100);
+	ft_printf(2, "%i%%\n", ((int)(p->disorder * 10000)) % 100);
 	ft_printf(2, "[bench] strategy: %s / %s\n", b->strategy, comp_class(p));
 	ft_printf(2, "[bench] total_ops: %i\n", b->total_ops);
 	ft_printf(2, "[bench] sa: %i sb: %i ", b->sa, b->sb);
