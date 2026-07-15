@@ -6,11 +6,11 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:13:56 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 16:13:43 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/15 19:00:37 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	sa(t_stack *a, t_benchmark *bench)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   medium_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 19:23:50 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/14 17:42:53 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/15 18:54:56 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void	push_to_b(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chu)
 		next_chunk(chu);
 		chunk_cont++;
 	}
+	while (a->top)
+		pb(a, b, bench);
 }
 
 static int	find_max(t_stack *b, int ind_to_find)
@@ -74,11 +76,6 @@ static void	push_to_a(t_stack *a, t_stack *b, t_benchmark *bench)
 	ind_to_push = b->size - 1;
 	while (ind_to_push >= 0)
 	{
-		printf("1\n");
-		printf("ind_to_push: %i\n", ind_to_push);
-		printf("1\n");
-		//printf("b->top->value: %i\n", b->top->value);
-		//printf("b->top->index: %i\n", b->top->index);
 		if (b->top->index == ind_to_push)
 		{
 			pa(a, b, bench);
@@ -102,9 +99,6 @@ void	medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
 
 	set_stack_index(a);
 	chunk = set_chunk(create_chunk(), a->size);
-	printf("chunck_size: %i\n", chunk->chunk_size);
 	push_to_b(a, b, bench, chunk);
-	print_stack("STACK AA:", a);
-	print_stack("STACK BB:", b);
 	push_to_a(a, b, bench);
 }

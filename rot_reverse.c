@@ -6,11 +6,11 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:15:28 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 16:44:13 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/15 19:00:24 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	rra(t_stack *a, t_benchmark *bench)
 {
@@ -23,16 +23,9 @@ void	rra(t_stack *a, t_benchmark *bench)
 	temp = a->top;
 	while (new_top->next)
 		new_top = new_top->next;
+	new_top->prev->next = NULL;
 	a->top = new_top;
 	a->top->prev = NULL;
-	while (temp->next)
-	{
-		temp = temp->next;
-		if (temp->next->next == NULL)
-			temp->next = NULL;
-	}
-	while (temp->prev)
-		temp = temp->prev;
 	a->top->next = temp;
 	temp->prev = a->top;
 	bench->rra++;
@@ -51,16 +44,9 @@ void	rrb(t_stack *b, t_benchmark *bench)
 	temp = b->top;
 	while (new_top->next)
 		new_top = new_top->next;
+	new_top->prev->next = NULL;
 	b->top = new_top;
 	b->top->prev = NULL;
-	while (temp->next)
-	{
-		temp = temp->next;
-		if (temp->next->next == NULL)
-			temp->next = NULL;
-	}
-	while (temp->prev)
-		temp = temp->prev;
 	b->top->next = temp;
 	temp->prev = b->top;
 	bench->rrb++;

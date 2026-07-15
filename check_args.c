@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/13 18:00:15 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/15 19:00:02 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	correct_stack(char **argv)
 {

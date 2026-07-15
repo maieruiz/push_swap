@@ -6,11 +6,11 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 16:05:07 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/09 14:38:07 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/15 19:00:10 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	validate_format(char **argv)
 {

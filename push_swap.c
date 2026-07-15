@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/14 17:38:37 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/15 18:40:57 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void	print_stack(char *name, t_stack *stack)
 {
 	t_node	*current;
 
-	printf("\n%s\n", name);
+	dprintf(2, "\n%s\n", name);
 	current = stack->top;
 	while (current)
 	{
-		printf("value=%d  ", current->value);
-		printf("index=%d", current->index);
-		printf("\n");
+		dprintf(2, "value=%d  ", current->value);
+		dprintf(2, "index=%d", current->index);
+		dprintf(2, "\n");
 		current = current->next;
 	}
-	printf("size: %i\n", stack->size);
+	dprintf(2, "size: %i\n", stack->size);
 }
 
 void	push_swap(int argc, char **argv)
@@ -77,7 +77,7 @@ void	push_swap(int argc, char **argv)
 	if (program->bench_enable == 1)
 	{
 		set_benchmark(benchmark, program);
-		//printf_benchmark(benchmark, program);
+		printf_benchmark(benchmark, program);
 	}
 }
 

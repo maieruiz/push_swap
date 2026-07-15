@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/14 14:59:49 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/15 18:43:26 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*comp_class(t_program *p)
 	{
 		if (p->disorder < 0.2)
 			return ("O(n²)");
-		else if (0.2 <= p->disorder || p->disorder < 0.5)
+		else if (0.2 <= p->disorder && p->disorder < 0.5)
 			return ("O(n√n)");
 		else
 			return ("O(n log n)");
