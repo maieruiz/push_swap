@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 19:23:50 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/15 18:54:56 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_top_in_chunk(t_stack *a, int min, int max)
 	return (0);
 }
 
-static void	push_to_b(t_stack *a, t_stack *b, t_benchmark *bench, t_chunk *chu)
+static void	push_to_b(t_stack *a, t_stack *b, t_bench *bench, t_chunk *chu)
 {
 	int	chunk_cont;
 	int	chunk_total;
@@ -66,7 +66,7 @@ static int	find_max(t_stack *b, int ind_to_find)
 	return (-1);
 }
 
-static void	push_to_a(t_stack *a, t_stack *b, t_benchmark *bench)
+static void	push_to_a(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	ind_to_push;
 	int	medium_line;
@@ -93,7 +93,7 @@ static void	push_to_a(t_stack *a, t_stack *b, t_benchmark *bench)
 	}
 }
 
-void	medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
+void	medium_algorithm(t_stack *a, t_stack *b, t_bench *bench)
 {
 	t_chunk	*chunk;
 

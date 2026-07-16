@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/15 18:40:57 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 16:14:47 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	push_swap(int argc, char **argv)
 {
 	int			arg_type;
 	t_program	*program;
-	t_benchmark	*benchmark;
+	t_bench		*benchmark;
 
 	benchmark = create_benchmark();
 	arg_type = check_args(argc, argv);
@@ -73,12 +73,16 @@ void	push_swap(int argc, char **argv)
 	}
 	else
 		program = set_program(arg_type, argv, argc);
+	print_stack("STACK A\n", program->a);
+	print_stack("STACK B\n", program->b);
 	call_algorithm(program, benchmark);
 	if (program->bench_enable == 1)
 	{
-		set_benchmark(benchmark, program);
+		set_bench(benchmark, program);
 		printf_benchmark(benchmark, program);
 	}
+	print_stack("STACK A\n", program->a);
+	print_stack("STACK B\n", program->b);
 }
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/14 13:19:44 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:31:49 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_benchmark
 	int		rra;
 	int		rrb;
 	int		rrr;
-}	t_benchmark;
+}	t_bench;
 typedef struct s_program
 {
 	t_stack	*a;
@@ -62,17 +62,17 @@ typedef struct s_chunk
 	int	min;
 	int	max;
 }	t_chunk;
-void		sa(t_stack *a, t_benchmark *bench);
-void		sb(t_stack *b, t_benchmark *bench);
-void		ss(t_stack *a, t_stack *b, t_benchmark *bench);
-void		pb(t_stack *a, t_stack *b, t_benchmark *bench);
-void		pa(t_stack *a, t_stack *b, t_benchmark *bench);
-void		ra(t_stack *a, t_benchmark *bench);
-void		rb(t_stack *b, t_benchmark *bench);
-void		rr(t_stack *a, t_stack *b, t_benchmark *bench);
-void		rra(t_stack *a, t_benchmark *bench);
-void		rrb(t_stack *b, t_benchmark *bench);
-void		rrr(t_stack *a, t_stack *b, t_benchmark *bench);
+void		sa(t_stack *a, t_bench *bench);
+void		sb(t_stack *b, t_bench *bench);
+void		ss(t_stack *a, t_stack *b, t_bench *bench);
+void		pb(t_stack *a, t_stack *b, t_bench *bench);
+void		pa(t_stack *a, t_stack *b, t_bench *bench);
+void		ra(t_stack *a, t_bench *bench);
+void		rb(t_stack *b, t_bench *bench);
+void		rr(t_stack *a, t_stack *b, t_bench *bench);
+void		rra(t_stack *a, t_bench *bench);
+void		rrb(t_stack *b, t_bench *bench);
+void		rrr(t_stack *a, t_stack *b, t_bench *bench);
 char		choose_strategy(int arg_type, char **argv);
 int			choose_bench(int arg_type);
 int			validate_format(char **argv);
@@ -91,20 +91,20 @@ t_stack		*create_new_stack(void);
 t_stack		*create_stack(int start, int end, char **argv);
 t_node		*create_node(int value);
 void		add_back_node(t_stack *a, t_node *node_to_add);
-void		call_algorithm(t_program *program, t_benchmark *bench);
-t_benchmark	*create_benchmark(void);
-void		printf_benchmark(t_benchmark *b, t_program *p);
+void		call_algorithm(t_program *program, t_bench *bench);
+t_bench		*create_benchmark(void);
+void		printf_benchmark(t_bench *b, t_program *p);
 t_program	*set_program(int arg_type, char **argv, int argc);
-void		printf_benchmark(t_benchmark *bench, t_program *p);
-void		set_benchmark(t_benchmark *benchmark, t_program *program);
-void		simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench);
-void		medium_algorithm(t_stack *a, t_stack *b, t_benchmark *bench);
-void		rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench);
+void		printf_benchmark(t_bench *bench, t_program *p);
+void		set_bench(t_bench *benchmark, t_program *program);
+void		simple_algorithm(t_stack *a, t_stack *b, t_bench *bench);
+void		medium_algorithm(t_stack *a, t_stack *b, t_bench *bench);
+void		rotate_to_min(t_stack *a, int pos_min, t_bench *bench);
 void		set_stack_index(t_stack *a);
 void		next_chunk(t_chunk	*chunk);
 t_chunk		*set_chunk(t_chunk *chunk, int chunk_num);
 t_chunk		*create_chunk(void);
-void		adaptive_algorithm(t_stack *a, t_stack *b, t_benchmark *ben, float dis);
-void		complex_algorithm(t_stack *a, t_stack *b, t_benchmark *ben);
+void		adaptive_algorithm(t_stack *a, t_stack *b, t_bench *ben, float dis);
+void		complex_algorithm(t_stack *a, t_stack *b, t_bench *ben);
 void		print_stack(char *name, t_stack *stack);
 #endif

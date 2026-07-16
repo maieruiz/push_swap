@@ -6,13 +6,13 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 15:47:01 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/14 14:04:31 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	adaptive_algorithm(t_stack *a, t_stack *b, t_benchmark *ben, float dis)
+void	adaptive_algorithm(t_stack *a, t_stack *b, t_bench *ben, float dis)
 {
 	if (dis < 0.2)
 		simple_algorithm(a, b, ben);

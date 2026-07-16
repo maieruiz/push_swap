@@ -6,17 +6,17 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/15 18:43:26 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:45:12 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_benchmark	*create_benchmark(void)
+t_bench	*create_benchmark(void)
 {
-	t_benchmark	*benchmark;
+	t_bench	*benchmark;
 
-	benchmark = (t_benchmark *)malloc(sizeof(t_benchmark));
+	benchmark = (t_bench *)malloc(sizeof(t_bench));
 	if (!benchmark)
 		return (NULL);
 	benchmark->disorder = 0.0;
@@ -36,7 +36,7 @@ t_benchmark	*create_benchmark(void)
 	return (benchmark);
 }
 
-void	set_benchmark(t_benchmark *benchmark, t_program *program)
+void	set_bench(t_bench *benchmark, t_program *program)
 {
 	benchmark->disorder = program->disorder;
 	if (program->strategy == 's')
@@ -68,7 +68,7 @@ char	*comp_class(t_program *p)
 		return ("O(n log n)");
 }
 
-void	printf_benchmark(t_benchmark *b, t_program *p)
+void	printf_benchmark(t_bench *b, t_program *p)
 {
 	ft_printf(2, "[bench] disorder: %i.", ((int)(p->disorder * 10000)) / 100);
 	ft_printf(2, "%i%%\n", ((int)(p->disorder * 10000)) % 100);
@@ -80,24 +80,3 @@ void	printf_benchmark(t_benchmark *b, t_program *p)
 	ft_printf(2, "rra: %i rrb: %i rrr: %i\n", b->rra, b->rrb, b->rrr);
 }
 
-/*int	main(void)
-{
-	t_benchmark	*bench;
-
-	bench = crete_benchmark();
-	bench->disorder = 12.23;
-	bench->strategy = "Adaptive";
-	bench->total_ops = 2;
-	bench->sa = 0;
-	bench->sb = 1;
-	bench->ss = 0;
-	bench->pb = 34;
-	bench->pa = 76;
-	bench->ra = 0;
-	bench->rb = 6;
-	bench->rr = 88;
-	bench->rra = 12;
-	bench->rrb = 0;
-	bench->rrr = 0;
-	printf_benchmark(bench);
-}*/

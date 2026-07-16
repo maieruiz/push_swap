@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/12 13:30:15 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	find_min(t_stack *a)
 	return (pos_min);
 }
 
-void	rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench)
+void	rotate_to_min(t_stack *a, int pos_min, t_bench *bench)
 {
 	int	medium_line;
 	int	moves;
@@ -62,7 +62,7 @@ void	rotate_to_min(t_stack *a, int pos_min, t_benchmark *bench)
 	}
 }
 
-static float	is_sorted(t_stack *a, t_stack *b, t_benchmark *bench)
+static float	is_sorted(t_stack *a, t_stack *b, t_bench *bench)
 {
 	float	ret;
 
@@ -76,7 +76,7 @@ static float	is_sorted(t_stack *a, t_stack *b, t_benchmark *bench)
 	return (ret);
 }
 
-void	simple_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
+void	simple_algorithm(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	pos_min;
 

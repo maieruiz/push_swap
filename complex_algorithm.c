@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:14:33 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/14 13:59:08 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	get_bits(int num)
 	return (bits);
 }
 
-static void	check_byte(t_stack *a, t_stack *b, int bit, t_benchmark *bench)
+static void	check_byte(t_stack *a, t_stack *b, int bit, t_bench *bench)
 {
 	t_node	*current;
 	t_node	*temp;
@@ -47,7 +47,7 @@ static void	check_byte(t_stack *a, t_stack *b, int bit, t_benchmark *bench)
 	}
 }
 
-void	complex_algorithm(t_stack *a, t_stack *b, t_benchmark *bench)
+void	complex_algorithm(t_stack *a, t_stack *b, t_bench *bench)
 {
 	int	bit;
 	int	rounds;

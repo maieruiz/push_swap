@@ -6,13 +6,13 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:13:56 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/15 19:00:37 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a, t_benchmark *bench)
+void	sa(t_stack *a, t_bench *bench)
 {
 	int	temp_value;
 	int	temp_index;
@@ -30,7 +30,7 @@ void	sa(t_stack *a, t_benchmark *bench)
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b, t_benchmark *bench)
+void	sb(t_stack *b, t_bench *bench)
 {
 	int	temp_value;
 	int	temp_index;
@@ -48,7 +48,7 @@ void	sb(t_stack *b, t_benchmark *bench)
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b, t_benchmark *bench)
+void	ss(t_stack *a, t_stack *b, t_bench *bench)
 {
 	sa(a, bench);
 	sb(b, bench);
