@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 17:35:59 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/16 15:31:49 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 17:03:33 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 	t_node	*top;
 	int		size;
 }	t_stack;
-typedef struct s_benchmark
+typedef struct s_bench
 {
 	float	disorder;
 	char	*strategy;
@@ -106,5 +106,6 @@ t_chunk		*set_chunk(t_chunk *chunk, int chunk_num);
 t_chunk		*create_chunk(void);
 void		adaptive_algorithm(t_stack *a, t_stack *b, t_bench *ben, float dis);
 void		complex_algorithm(t_stack *a, t_stack *b, t_bench *ben);
-void		print_stack(char *name, t_stack *stack);
+float		is_sorted(t_stack *a, t_stack *b, t_bench *bench);
+void		superfree(t_stack *a, t_stack *b, t_bench *bench, t_program *pro);
 #endif

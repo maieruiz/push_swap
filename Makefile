@@ -1,6 +1,5 @@
 NAME = push_swap
 
-MAKEFLAGS = -silent
 CFLAGS = -Wall -Werror -Wextra -g
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -10,7 +9,7 @@ FILES = rot_reverse.c rotate.c \
 		benchmark.c disorder_checker.c node_stack.c program.c \
 		push_swap.c simple_algorithm.c utilities.c call_algorithm.c\
 		index.c medium_algorithm.c chunk.c adaptive_algorithm.c\
-		complex_algorithm.c push.c
+		complex_algorithm.c push.c superfree.c
 
 OBJ = $(FILES:.c=.o)
 

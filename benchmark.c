@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/16 15:45:12 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 16:29:01 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,3 @@ void	printf_benchmark(t_bench *b, t_program *p)
 	ft_printf(2, "[bench] ra: %i rb: %i rr: %i ", b->ra, b->rb, b->rr);
 	ft_printf(2, "rra: %i rrb: %i rrr: %i\n", b->rra, b->rrb, b->rrr);
 }
-

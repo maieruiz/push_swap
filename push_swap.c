@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/16 16:14:47 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 17:02:58 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,6 @@ int	stack_start(int arg_type)
 		return (3);
 }
 
-void	print_stack(char *name, t_stack *stack)
-{
-	t_node	*current;
-
-	dprintf(2, "\n%s\n", name);
-	current = stack->top;
-	while (current)
-	{
-		dprintf(2, "value=%d  ", current->value);
-		dprintf(2, "index=%d", current->index);
-		dprintf(2, "\n");
-		current = current->next;
-	}
-	dprintf(2, "size: %i\n", stack->size);
-}
-
 void	push_swap(int argc, char **argv)
 {
 	int			arg_type;
@@ -68,21 +52,18 @@ void	push_swap(int argc, char **argv)
 		return ;
 	else if (arg_type == -1)
 	{
-		ft_printf(1, "Error\n");
+		ft_printf(2, "Error\n");
 		return ;
 	}
 	else
 		program = set_program(arg_type, argv, argc);
-	print_stack("STACK A\n", program->a);
-	print_stack("STACK B\n", program->b);
 	call_algorithm(program, benchmark);
 	if (program->bench_enable == 1)
 	{
 		set_bench(benchmark, program);
 		printf_benchmark(benchmark, program);
 	}
-	print_stack("STACK A\n", program->a);
-	print_stack("STACK B\n", program->b);
+	superfree(program->a, program->b, benchmark, program);
 }
 
 int	main(int argc, char **argv)

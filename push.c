@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 15:30:15 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/16 15:31:20 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 16:25:07 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pa(t_stack *a, t_stack *b, t_bench *bench)
 	a->top = temp;
 	b->size--;
 	a->size++;
-	bench->pb++;
+	bench->pa++;
 	bench->total_ops++;
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 }

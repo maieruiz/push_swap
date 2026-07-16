@@ -6,7 +6,7 @@
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/16 16:32:18 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	rotate_to_min(t_stack *a, int pos_min, t_bench *bench)
 	}
 }
 
-static float	is_sorted(t_stack *a, t_stack *b, t_bench *bench)
+float	is_sorted(t_stack *a, t_stack *b, t_bench *bench)
 {
 	float	ret;
 

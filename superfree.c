@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   call_algorithm.c                                   :+:      :+:    :+:   */
+/*   superfree.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/02 20:36:30 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/16 16:41:10 by amarlasc         ###   ########.fr       */
+/*   Created: 2026/07/16 16:47:55 by amarlasc          #+#    #+#             */
+/*   Updated: 2026/07/16 17:04:22 by amarlasc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	call_algorithm(t_program *program, t_bench *bench)
+void	superfree(t_stack *a, t_stack *b, t_bench *bench, t_program *pro)
 {
-	if (program->disorder == 0.0)
-		return ;
-	if (program->strategy == 's')
-		simple_algorithm(program->a, program->b, bench);
-	else if (program->strategy == 'm')
-		medium_algorithm(program->a, program->b, bench);
-	else if (program->strategy == 'c')
-		complex_algorithm(program->a, program->b, bench);
-	else
-		adaptive_algorithm(program->a, program->b, bench, program->disorder);
+	t_node	*temp;
+
+	temp = a->top;
+	while (a->top)
+	{
+		a->top = temp->next;
+		free(temp);
+		temp = a->top;
+	}
+	free(b);
+	free(bench);
+	free(a);
+	free(pro);
 }
