@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/16 17:02:58 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/18 20:31:26 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,27 @@ void	push_swap(int argc, char **argv)
 	t_program	*program;
 	t_bench		*benchmark;
 
+	if (argc == 1)
+		return ;
 	benchmark = create_benchmark();
-	arg_type = check_args(argc, argv);
-	if (arg_type == 0)
-		return ;
-	else if (arg_type == -1)
+	if (!benchmark)
+		return (ft_printf(2, "1Error\n"), (void)0);
+	program = create_program();
+	if (!program)
+		return (ft_printf(2, "2Error\n"), free(benchmark), (void)0);
+	arg_type = check_args(argc, argv, program);
+	if (arg_type == -1)
 	{
-		ft_printf(2, "Error\n");
-		return ;
+		ft_printf(2, "3Error\n");
+		return (free_program(program), free(benchmark), (void)0);
 	}
-	else
-		program = set_program(arg_type, argv, argc);
 	call_algorithm(program, benchmark);
-	if (program->bench_enable == 1)
+	if (program->flag->bench == 1)
 	{
 		set_bench(benchmark, program);
 		printf_benchmark(benchmark, program);
 	}
-	superfree(program->a, program->b, benchmark, program);
+	superfree(benchmark, program);
 }
 
 int	main(int argc, char **argv)

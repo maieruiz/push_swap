@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:12:57 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/16 16:32:18 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/18 17:40:57 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,60 +36,60 @@ static int	find_min(t_stack *a)
 	return (pos_min);
 }
 
-void	rotate_to_min(t_stack *a, int pos_min, t_bench *bench)
+static void	rotate_to_min(t_program *program, int pos_min, t_bench *bench)
 {
 	int	medium_line;
 	int	moves;
 
-	medium_line = a->size / 2;
+	medium_line = program->a->size / 2;
 	moves = pos_min;
 	if (pos_min <= medium_line)
 	{
 		while (moves != 0)
 		{
-			ra(a, bench);
+			ra(program, bench);
 			moves--;
 		}
 	}
 	else
 	{
-		moves = a->size - pos_min;
+		moves = program->a->size - pos_min;
 		while (moves != 0)
 		{
-			rra(a, bench);
+			rra(program, bench);
 			moves--;
 		}
 	}
 }
 
-float	is_sorted(t_stack *a, t_stack *b, t_bench *bench)
+static float	is_sorted(t_program *program, t_bench *bench)
 {
 	float	ret;
 
-	ret = compute_disorder(a);
+	ret = compute_disorder(program->a);
 	if (ret == 0.0f)
 	{
-		while (b->top)
-			pa(a, b, bench);
+		while (program->b->top)
+			pa(program, bench);
 		return (0);
 	}
 	return (ret);
 }
 
-void	simple_algorithm(t_stack *a, t_stack *b, t_bench *bench)
+void	simple_algorithm(t_program *program, t_bench *bench)
 {
 	int	pos_min;
 
-	while (a->top)
+	while (program->a->top)
 	{
-		if (is_sorted(a, b, bench) == 0.0f)
+		if (is_sorted(program, bench) == 0.0f)
 			break ;
-		pos_min = find_min(a);
-		rotate_to_min(a, pos_min, bench);
-		if (is_sorted(a, b, bench) == 0.0f)
+		pos_min = find_min(program->a);
+		rotate_to_min(program, pos_min, bench);
+		if (is_sorted(program, bench) == 0.0f)
 			break ;
-		pb(a, b, bench);
+		pb(program, bench);
 	}
-	while (b->top)
-		pa(a, b, bench);
+	while (program->b->top)
+		pa(program, bench);
 }

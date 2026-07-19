@@ -3,28 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   superfree.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/16 16:47:55 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/16 17:04:22 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/19 11:09:23 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	superfree(t_stack *a, t_stack *b, t_bench *bench, t_program *pro)
+static void	free_stack(t_stack *stack)
 {
-	t_node	*temp;
+	t_node	*current;
+	t_node	*next;
 
-	temp = a->top;
-	while (a->top)
+	if (!stack)
+		return ;
+	current = stack->top;
+	while (current)
 	{
-		a->top = temp->next;
-		free(temp);
-		temp = a->top;
+		next = current->next;
+		free(current);
+		current = next;
 	}
-	free(b);
+	free(stack);
+}
+
+void	free_program(t_program *program)
+{
+	free_stack(program->a);
+	free_stack(program->b);
+	free(program->flag);
+	free(program);
+}
+
+void	superfree(t_bench *bench, t_program *program)
+{
+	free_program(program);
 	free(bench);
-	free(a);
-	free(pro);
 }

@@ -6,13 +6,13 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:03:18 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/13 18:40:00 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/19 11:00:45 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(int value)
+t_node	*create_new_node(int value)
 {
 	t_node	*new_node;
 
@@ -64,15 +64,13 @@ t_stack	*create_new_stack(void)
 	return (a);
 }
 
-t_stack	*create_stack(int start, int end, char **argv)
+t_stack	*fill_stack(int start, int end, char **argv, t_stack *a)
 {
-	t_stack	*a;
 	t_node	*current;
 
-	a = create_new_stack();
 	while (start < end)
 	{
-		current = create_node(ft_atoi(argv[start]));
+		current = create_new_node(ft_atoi(argv[start]));
 		add_back_node(a, current);
 		a->size++;
 		start++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:02:38 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/16 16:29:01 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/18 17:37:47 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ t_bench	*create_benchmark(void)
 void	set_bench(t_bench *benchmark, t_program *program)
 {
 	benchmark->disorder = program->disorder;
-	if (program->strategy == 's')
+	if (program->flag->strategy == 's')
 		benchmark->strategy = "Simple";
-	else if (program->strategy == 'm')
+	else if (program->flag->strategy == 'm')
 		benchmark->strategy = "Medium";
-	else if (program->strategy == 'c')
+	else if (program->flag->strategy == 'c')
 		benchmark->strategy = "Complex";
-	else if (program->strategy == 'a')
+	else if (program->flag->strategy == 'a')
 		benchmark->strategy = "Adaptive";
 }
 
 char	*comp_class(t_program *p)
 {
-	if (p->strategy == 'a')
+	if (p->flag->strategy == 'a')
 	{
 		if (p->disorder < 0.2)
 			return ("O(n²)");
@@ -60,9 +60,9 @@ char	*comp_class(t_program *p)
 		else
 			return ("O(n log n)");
 	}
-	else if (p->strategy == 's')
+	else if (p->flag->strategy == 's')
 		return ("O(n²)");
-	else if (p->strategy == 'm')
+	else if (p->flag->strategy == 'm')
 		return ("O(n√n)");
 	else
 		return ("O(n log n)");

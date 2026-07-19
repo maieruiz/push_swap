@@ -3,23 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   program.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/08 15:04:06 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/14 14:00:15 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/18 17:34:52 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	stack_start(int arg_type)
+t_flag	*create_flag(void)
 {
-	if (arg_type == 3)
-		return (1);
-	else if (arg_type == 32 || arg_type == 31)
-		return (2);
-	else
-		return (3);
+	t_flag	*flag;
+
+	flag = (t_flag *)malloc(sizeof(t_flag));
+	if (!flag)
+		return (NULL);
+	flag->bench = 0;
+	flag->strategy = 'a';
+	return (flag);
 }
 
 t_program	*create_program(void)
@@ -31,21 +33,16 @@ t_program	*create_program(void)
 		return (NULL);
 	program->a = NULL;
 	program->b = NULL;
-	program->strategy = 's';
-	program->bench_enable = 0;
-	program->disorder = 0.0;
-	return (program);
-}
-
-t_program	*set_program(int arg_type, char **argv, int argc)
-{
-	t_program	*program;
-
-	program = create_program();
-	program->strategy = choose_strategy(arg_type, argv);
-	program->bench_enable = choose_bench(arg_type);
-	program->a = create_stack(stack_start(arg_type), argc, argv);
+	program->flag = NULL;
+	program->a = create_new_stack();
+	if (!program->a)
+		return (free_program(program), NULL);
 	program->b = create_new_stack();
+	if (!program->b)
+		return (free_program(program), NULL);
+	program->flag = create_flag();
+	if (!program->flag)
+		return (free_program(program), NULL);
 	program->disorder = compute_disorder(program->a);
 	return (program);
 }

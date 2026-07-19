@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   complex_algorithm.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 20:14:33 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/18 14:12:54 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,41 +25,41 @@ static int	get_bits(int num)
 	return (bits);
 }
 
-static void	check_byte(t_stack *a, t_stack *b, int bit, t_bench *bench)
+static void	check_byte(t_program *program, int bit, t_bench *bench)
 {
 	t_node	*current;
 	t_node	*temp;
 	int		n;
 	int		n_times;
 
-	current = a->top;
-	n_times = a->size;
+	current = program->a->top;
+	n_times = program->a->size;
 	n = 0;
 	while (n < n_times)
 	{
 		temp = current->next;
 		if (((current->index >> bit) & 1) == 0)
-			pb(a, b, bench);
+			pb(program, bench);
 		else
-			ra(a, bench);
+			ra(program, bench);
 		current = temp;
 		n++;
 	}
 }
 
-void	complex_algorithm(t_stack *a, t_stack *b, t_bench *bench)
+void	complex_algorithm(t_program *program, t_bench *bench)
 {
 	int	bit;
 	int	rounds;
 
 	bit = 0;
-	set_stack_index(a);
-	rounds = get_bits(a->size - 1);
+	set_stack_index(program->a);
+	rounds = get_bits(program->a->size - 1);
 	while (bit < rounds)
 	{
-		check_byte(a, b, bit, bench);
-		while (b->top)
-			pa(a, b, bench);
+		check_byte(program, bit, bench);
+		while (program->b->top)
+			pa(program, bench);
 		bit++;
 	}
 }

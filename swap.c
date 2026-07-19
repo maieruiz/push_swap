@@ -3,55 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarlasc <amarlasc@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 17:13:56 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/16 15:23:07 by amarlasc         ###   ########.fr       */
+/*   Updated: 2026/07/18 14:02:00 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a, t_bench *bench)
+void	sa(t_program *program, t_bench *bench)
 {
 	int	temp_value;
 	int	temp_index;
 
-	if (a->size < 2)
+	if (program->a->size < 2)
 		return ;
-	temp_value = a->top->value;
-	temp_index = a->top->index;
-	a->top->value = a->top->next->value;
-	a->top->index = a->top->next->index;
-	a->top->next->value = temp_value;
-	a->top->next->index = temp_index;
+	temp_value = program->a->top->value;
+	temp_index = program->a->top->index;
+	program->a->top->value = program->a->top->next->value;
+	program->a->top->index = program->a->top->next->index;
+	program->a->top->next->value = temp_value;
+	program->a->top->next->index = temp_index;
 	bench->sa++;
 	bench->total_ops++;
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *b, t_bench *bench)
+void	sb(t_program *program, t_bench *bench)
 {
 	int	temp_value;
 	int	temp_index;
 
-	if (b->size < 2)
+	if (program->b->size < 2)
 		return ;
-	temp_value = b->top->value;
-	temp_index = b->top->index;
-	b->top->value = b->top->next->value;
-	b->top->index = b->top->next->index;
-	b->top->next->value = temp_value;
-	b->top->next->index = temp_index;
+	temp_value = program->b->top->value;
+	temp_index = program->b->top->index;
+	program->b->top->value = program->b->top->next->value;
+	program->b->top->index = program->b->top->next->index;
+	program->b->top->next->value = temp_value;
+	program->b->top->next->index = temp_index;
 	bench->sb++;
 	bench->total_ops++;
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b, t_bench *bench)
+void	ss(t_program *program, t_bench *bench)
 {
-	sa(a, bench);
-	sb(b, bench);
+	sa(program, bench);
+	sb(program, bench);
 	bench->ss++;
 	bench->total_ops++;
 	write(1, "ss\n", 3);
