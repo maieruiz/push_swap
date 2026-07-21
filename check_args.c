@@ -6,84 +6,76 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 11:36:54 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/06/30 18:11:42 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/19 11:00:23 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_strcmp(const char *s1, const char *s2)
+int	correct_stack(char **argv)
 {
-	size_t	i;
+	long	*nums;
+	int		count;
 
-	i = 0;
-	while (s1[i] && s2[i])
+	if (!argv)
+		return (-1);
+	count = count_args(argv);
+	if (!validate_format(argv))
+		return (-1);
+	nums = convert_to_long(argv);
+	if (!nums)
+		return (-1);
+	if (!check_int_limits(nums, count))
 	{
-		if (s1[i] != s2[i])
-			return (1);
-		i++;
+		free (nums);
+		return (-1);
 	}
-	if ((!s1[i] && s2[i]) || (!s2[i] && s1[i]))
-		return (1);
-	return (0);
-}
-
-static int	valid_int(char *str)
-{
-	
-}
-
-static int	correct_stack(int num, char **argv)
-{
-	while (argv[num])
+	if (!check_duplicates(nums, count))
 	{
-		
+		free(nums);
+		return (-1);
 	}
+	free (nums);
+	return (1);
 }
 
-static int	select_strategy(char *argv)
+static int	correct_flag(char	*argv, t_program *program)
 {
-	if (ft_strcmp(argv, "--simple") == 0 || ft_strcmp(argv, "--medium") == 0
-		|| ft_strcmp(argv, "--complex") == 0
-		|| ft_strcmp(argv, "--adaptive") == 0)
-		return (1);
-	return (0);
+	if (ft_strcmp(argv, "--bench") == 0)
+		program->flag->bench = 1;
+	else if (ft_strcmp(argv, "--simple") == 0)
+		program->flag->strategy = 's';
+	else if (ft_strcmp(argv, "--medium") == 0)
+		program->flag->strategy = 'm';
+	else if (ft_strcmp(argv, "--complex") == 0)
+		program->flag->strategy = 'c';
+	else if (ft_strcmp(argv, "--adaptive") == 0)
+		program->flag->strategy = 'a';
+	else
+		return (-1);
+	return (1);
 }
 
-int	check_args(int argc, char **argv)
+int	check_args(int argc, char **argv, t_program *program)
 {
 	int	ret;
+	int	i;
 
-	ret = -1;
-	if (argc == 1)
-		return (0);
-	if (ft_strcmp(argv[1], "--bench") == 0 && argc > 2)
+	i = 1;
+	ret = 1;
+	while (argv[i][0] == '-' && argv[i][1] == '-' && ret == 1)
 	{
-		if (select_strategy(argv[2]) == 1 && argc > 3)
-		{
-			if (correct_stack(3, argv) == 1)
-				ret = 321;
-		}
-		else if (correct_stack(2, argv) == 1)
-			ret = 31;
+		ret = correct_flag(argv[i], program);
+		i++;
 	}
-	else if (select_strategy(argv[1]) == 1)
+	if (ret == -1)
+		return (ret);
+	if (correct_stack(argv + i) == 1)
 	{
-		if (correct_stack(2, argv) == 1)
-			ret = 32;
+		program->a = fill_stack(i, argc, argv, program->a);
 	}
-	else if (correct_stack(1, argv) == 1)
-		ret = 3;
+	else
+		return (-1);
+	program->disorder = compute_disorder(program->a);
 	return (ret);
 }
-
-/*int	main(int argc, char **argv)
-{
-	int 	i = check_args(argc, argv);
-	if (i == 0)
-		return (0);
-	else if (i == -1)
-		printf("Error\n");
-	else
-	printf("%i\n", i);
-}*/

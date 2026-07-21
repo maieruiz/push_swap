@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   adaptive_algorithm.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/09 14:28:04 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/12 15:45:29 by mairuiz          ###   ########.fr       */
+/*   Created: 2026/07/11 15:47:01 by mairuiz           #+#    #+#             */
+/*   Updated: 2026/07/18 14:14:29 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "push_swap.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h>
-
-int	ft_putchar(int fd, int c);
-int	ft_putstr(int fd, char *s);
-int	ft_putnbr(int fd, int n);
-int	ft_puthex(int fd, unsigned long un, char format);
-int	ft_putunsigned(int fd, unsigned int n);
-int	ft_printf(int fd, char const *s, ...);
-
-#endif
+void	adaptive_algorithm(t_program *program, t_bench *bench)
+{
+	if (program->disorder < 0.2)
+		simple_algorithm(program, bench);
+	else if (0.2 <= program->disorder && program->disorder < 0.5)
+		medium_algorithm(program, bench);
+	else if (program->disorder >= 0.5)
+		complex_algorithm(program, bench);
+}

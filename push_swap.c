@@ -6,7 +6,7 @@
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 15:03:37 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/06/30 17:36:36 by mairuiz          ###   ########.fr       */
+/*   Updated: 2026/07/18 20:31:26 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,43 @@ int	choose_bench(int arg_type)
 		return (0);
 }
 
+int	stack_start(int arg_type)
+{
+	if (arg_type == 3)
+		return (1);
+	else if (arg_type == 32 || arg_type == 31)
+		return (2);
+	else
+		return (3);
+}
+
 void	push_swap(int argc, char **argv)
 {
-	int		arg_type;
-	char	strategy;
-	int		bench;
-	int		disorder;
+	int			arg_type;
+	t_program	*program;
+	t_bench		*benchmark;
 
-	arg_type = check_args(argc, argv);
-	if (arg_type == 0)
+	if (argc == 1)
 		return ;
-	else if (arg_type == -1)
-		printf("Error\n");
-	else
+	benchmark = create_benchmark();
+	if (!benchmark)
+		return (ft_printf(2, "1Error\n"), (void)0);
+	program = create_program();
+	if (!program)
+		return (ft_printf(2, "2Error\n"), free(benchmark), (void)0);
+	arg_type = check_args(argc, argv, program);
+	if (arg_type == -1)
 	{
-		strategy = choose_stategy(arg_type, argv);
-		bench = choose_bench(arg_type);
-		//create stack or create in check_args??
-		disorder = compute_disorder();
+		ft_printf(2, "3Error\n");
+		return (free_program(program), free(benchmark), (void)0);
 	}
-	if (stategy == 's')
-		
-	printf("%i\n", arg_type);
+	call_algorithm(program, benchmark);
+	if (program->flag->bench == 1)
+	{
+		set_bench(benchmark, program);
+		printf_benchmark(benchmark, program);
+	}
+	superfree(benchmark, program);
 }
 
 int	main(int argc, char **argv)

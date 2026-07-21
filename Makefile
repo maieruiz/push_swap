@@ -1,18 +1,22 @@
 NAME = push_swap
 
-MAKEFLAGS = -silent
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-FILES = main.c operations.c check_args.c push_swap.c
+FILES = rot_reverse.c rotate.c \
+		swap.c check_args.c correct_stack.c \
+		benchmark.c disorder_checker.c node_stack.c program.c \
+		push_swap.c simple_algorithm.c utilities.c call_algorithm.c\
+		index.c medium_algorithm.c chunk.c adaptive_algorithm.c\
+		complex_algorithm.c push.c superfree.c
 
 OBJ = $(FILES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	cc $(CFLAGS) $(FILES) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT)
+	cc $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)

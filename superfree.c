@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder_checker.c                                 :+:      :+:    :+:   */
+/*   superfree.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 19:22:23 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 17:09:15 by mairuiz          ###   ########.fr       */
+/*   Created: 2026/07/16 16:47:55 by amarlasc          #+#    #+#             */
+/*   Updated: 2026/07/19 11:09:23 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	compute_disorder(t_stack *stack)
+static void	free_stack(t_stack *stack)
 {
-	float	mistake;
-	float	total_pairs;
 	t_node	*current;
-	t_node	*runner;
+	t_node	*next;
 
-	mistake = 0;
-	total_pairs = 0;
+	if (!stack)
+		return ;
 	current = stack->top;
-	if (stack->size <= 1)
-		return (0.0f);
 	while (current)
 	{
-		runner = current->next;
-		while (runner)
-		{
-			total_pairs += 1;
-			if (current->value > runner->value)
-				mistake += 1;
-			runner = runner->next;
-		}
-		current = current->next;
+		next = current->next;
+		free(current);
+		current = next;
 	}
-	return (mistake / total_pairs);
+	free(stack);
+}
+
+void	free_program(t_program *program)
+{
+	free_stack(program->a);
+	free_stack(program->b);
+	free(program->flag);
+	free(program);
+}
+
+void	superfree(t_bench *bench, t_program *program)
+{
+	free_program(program);
+	free(bench);
 }

@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   disorder_checker.c                                 :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 19:22:23 by amarlasc          #+#    #+#             */
-/*   Updated: 2026/07/12 17:09:15 by mairuiz          ###   ########.fr       */
+/*   Created: 2026/07/11 15:26:03 by mairuiz           #+#    #+#             */
+/*   Updated: 2026/07/11 15:26:37 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-float	compute_disorder(t_stack *stack)
+static int	set_node_index(t_stack *a, t_node	*node)
 {
-	float	mistake;
-	float	total_pairs;
 	t_node	*current;
-	t_node	*runner;
+	int		i;
 
-	mistake = 0;
-	total_pairs = 0;
-	current = stack->top;
-	if (stack->size <= 1)
-		return (0.0f);
-	while (current)
+	i = 0;
+	current = a->top;
+	while (current->next)
 	{
-		runner = current->next;
-		while (runner)
-		{
-			total_pairs += 1;
-			if (current->value > runner->value)
-				mistake += 1;
-			runner = runner->next;
-		}
+		if (current->value < node->value)
+			i++;
 		current = current->next;
 	}
-	return (mistake / total_pairs);
+	if (current->value < node->value)
+		i++;
+	return (i);
+}
+
+void	set_stack_index(t_stack *a)
+{
+	t_node	*current;	
+
+	current = a->top;
+	while (current->next)
+	{
+		current->index = set_node_index(a, current);
+		current = current->next;
+	}
+	current->index = set_node_index(a, current);
 }

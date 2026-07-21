@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   call_algorithm.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mairuiz <mairuiz@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/09 14:28:04 by mairuiz           #+#    #+#             */
-/*   Updated: 2026/07/12 15:45:29 by mairuiz          ###   ########.fr       */
+/*   Created: 2026/07/02 20:36:30 by mairuiz           #+#    #+#             */
+/*   Updated: 2026/07/19 10:24:01 by mairuiz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "push_swap.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h>
-
-int	ft_putchar(int fd, int c);
-int	ft_putstr(int fd, char *s);
-int	ft_putnbr(int fd, int n);
-int	ft_puthex(int fd, unsigned long un, char format);
-int	ft_putunsigned(int fd, unsigned int n);
-int	ft_printf(int fd, char const *s, ...);
-
-#endif
+void	call_algorithm(t_program *program, t_bench *bench)
+{
+	if (program->disorder == 0.0)
+		return ;
+	if (program->flag->strategy == 's')
+		simple_algorithm(program, bench);
+	else if (program->flag->strategy == 'm')
+		medium_algorithm(program, bench);
+	else if (program->flag->strategy == 'c')
+		complex_algorithm(program, bench);
+	else
+		adaptive_algorithm(program, bench);
+}
